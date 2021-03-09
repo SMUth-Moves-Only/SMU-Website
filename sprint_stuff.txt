@@ -1,0 +1,6 @@
+As developers, we want to build out the structure for the sign-up system for both the professors and students so that they can log in.
+As developers, we want to build out the structure for the form submission so students can submit peer evaluations.
+As developers, we want to build out the structure for a rudimentary website for testing.
+Impedements:
+We have to wait for the database to be complete to implement the backend PHP.
+We have to wait for the UX designer to provide wireframes before creating front-end HTML.
