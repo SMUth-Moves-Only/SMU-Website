@@ -13,7 +13,7 @@ include "header.php";
 
 <body>
 
-
+<h1>This is a beautiful website</h1>
 
     <!--THIS IS THE CONTACT FORM-->
     <form action="includes/contact.inc.php" method="post">
