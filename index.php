@@ -13,6 +13,8 @@ include "header.php";
 
 <body>
 
+<h1>this is my edit - walid</h1>
+
 <h1>This is a beautiful website</h1>
 
     <!--THIS IS THE CONTACT FORM-->
