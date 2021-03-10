@@ -16,21 +16,11 @@ require 'PHPMailer/src/SMTP.php';
 //DONE
 
 //checks for submit button submission
-if(isset($_POST['signup-submit'])){
+if(isset($_POST['professor-signup'])){
 
 
 	$emailHost = "localhost";
 
-
-	require_once('recaptchalib.php');
-	$secretkey = "SECRETKEY";
-	$response = $_POST["g-recaptcha-response"];
-	$verify = new recaptchalib($secretkey, $response);
-
-	if ($verify->isValid() == false) {
-		// What happens when the CAPTCHA was entered incorrectly
-		die ("The reCAPTCHA wasn't entered correctly. Go back and try it again.");
-	}
 	
 	//require database handler
 	require 'dbh.inc.php';

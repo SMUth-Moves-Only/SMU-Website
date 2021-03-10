@@ -7,9 +7,9 @@
 //if the server is different, like online server
 //change username and password for online server
 $servername = "db.gregfairbanks.net";
-$dbUsername = "";
-$dbPassword = "";
-$dbName = "";
+$dbUsername = "SMU";
+$dbPassword = "SMUAccount";
+$dbName = "SMU";
 
 $conn = mysqli_connect($servername, $dbUsername, $dbPassword, $dbName);
 
