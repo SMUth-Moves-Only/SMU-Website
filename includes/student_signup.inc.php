@@ -23,33 +23,6 @@ if (isset($_POST['student-signup'])) {
 	require 'dbh.inc.php';
 
 
-
-	/*
-
-
-
-       <label for="name">First Name:</label><br>
-        <input type="text" id="fname" name="fNameUser" placeholder="John"><br>
-        <label for="name">Last Name:</label><br>
-        <input type="text" id="lname" name="lNameUser" placeholder="Doe"><br>
-        <label for="major">Major:</label><br>
-        <input type="text" id="major" name="majorUser" placeholder="BIT"><br><br>
-        <label for="email">Email:</label><br>
-        <input type="text" id="email" name="emailUser" placeholder="test@test.com"><br><br>
-        <label for="pwd">Password:</label><br>
-        <input id="pwd" type="password" name="pwd" placeholder="Password"><br>
-        <label for="repeatpwd">Password Confirm:</label><br>
-        <input id="repeatpwd" type="password" name="repeatpwd" placeholder="Repeat Password"><br>
-        <button type="submit" name="student-signup"> Submit </button>
-
-
-
-
-
-
-*/
-
-
 	//fetch information from inputs
 	$fName = $_POST["fName"];
 	$lName = $_POST["lName"];
