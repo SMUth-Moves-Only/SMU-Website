@@ -2,6 +2,8 @@
 include "header.php";
 ?>
 
+<!--Login buttons for instructor, student, or administrator-->
+
 <!DOCTYPE html>
 <html>
 

@@ -15,6 +15,7 @@ include "analytics.php";
 
     <tr>
         <img src="smu.png" alt="smu">
+        
     </tr>
 
 </body>
