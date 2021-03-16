@@ -11,7 +11,7 @@ include "header.php";
 
   <form action = "includes/peer_evaluation_submit.inc.php" method = "post">
       <label>Student Name: </label>
-      <select id="StudentSelect">
+      <select id="StudentSelect" name="StudentSelect">
           <?php
               if (isset($_SESSION['names'])) {
                   for ($i = 0; $i < count($_SESSION['names']); $i++) {
@@ -51,7 +51,7 @@ include "header.php";
           for ($i = 0; $i < count($_SESSION['criterion']); $i++) {
                   echo '<div class="row">';
                   echo '<div class="criterion">';
-                  echo '<p>' .$_SESSION['criterion'][$i] . '</p>';
+                  echo '<p>' . $_SESSION['criterion'][$i] . '</p>';
                   echo '</div>';
                   echo '<div class="column">';
                   echo '<input type="radio" id="'.$_SESSION['criterion'][$i].'0" name="'.$_SESSION['criterion'][$i].'" value="0"> <label for="'.$_SESSION['criterion'][$i].'0">0</label>';
@@ -68,6 +68,7 @@ include "header.php";
                   echo '<div class="column">';
                   echo '<input type="radio" id="'.$_SESSION['criterion'][$i].'4" name="'.$_SESSION['criterion'][$i].'" value="4"> <label for="'.$_SESSION['criterion'][$i].'4">4</label>';
                   echo '</div>';
+                  echo '</div>';
           }
       }
       else{
@@ -78,7 +79,7 @@ include "header.php";
   <div class="AdditionalComments">
 
   <h1>Additional Comments</h1>
-    <textarea name="AddComm" rows="8" cols="80"></textarea>
+    <textarea style="width: 100%" name="AddComm" rows="8"></textarea>
   </div>
 
   <!--includes/peer_evaluation_submit.inc.php-->

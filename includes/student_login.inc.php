@@ -17,13 +17,13 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 
 	$i = 0;
 	while ($row = $result->fetch_assoc()) {
-    $_SESSION['student_id'][$i] = $row["student_id"];
+		$_SESSION['student_id'][$i] = $row["student_id"];
 		$_SESSION['names'][$i] = $row["first_name"] . " " . $row["last_name"];
 		$i++;
 	}
 
 
-	$sql = "SELECT name FROM criterion";
+	$sql = "SELECT criterion_id, name FROM criterion";
 	$stmt = mysqli_stmt_init($conn);
 
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -37,12 +37,13 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 
 		$i = 0;
 		while ($row = $result->fetch_assoc()) {
+			$_SESSION['criterion_id'][$i] = $row["criterion_id"];
 			$_SESSION['criterion'][$i] = $row["name"];
 			$i++;
 		}
+		$_SESSION["evalStart"] = date('Y-m-d H:i:s');
+		
 	}
-
-
 
 	header("Location: ../peerevaluation.php?result=success");
 }
