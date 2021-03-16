@@ -7,15 +7,14 @@ include "header.php";
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>studentlogin</title>
 
-    <style type="css">
+    <link rel="stylesheet" href="css/studentlogin.css">
 
+    <style src="js/index.js">
     </style>
 
   </head>
-
-
 
   <body>
 
@@ -29,8 +28,74 @@ include "header.php";
       <p><label>Password <br>
         <input type="text" name="userpass">
       </label></p>
-      
+    </div>
+
+
+    <div class="buttons">
+              <button onclick="window.location='studentportal.php';">Log In</button>
     </div>
 
   </body>
 </html>
+
+
+
+
+
+
+<!--h1 {
+  text-align: center;
+}
+
+body {
+  background-color: tan
+}
+
+button {
+  background: #06206e;
+  padding: 10px 50px;
+  cursor: pointer;
+  color: #daf17f;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 120%
+}
+
+.buttons {
+  text-align: center;
+}
+
+.Login {
+  width: 100%;
+}
+<body>
+
+  <div class="Login">
+    <h1>Log In</h1> <br>
+    <div class="buttons">
+              <button>INSTRUCTOR</button> <br>
+              <button onclick="window.location='studentlogin.php';">STUDENT</button> <br>
+              <button>ADMINISTRATOR</button>
+            </div>
+  </div>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->

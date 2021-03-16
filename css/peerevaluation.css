@@ -7,8 +7,18 @@
   float: left;
   width: 50%;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  height: 10%; /* Should be removed. Only for demonstration */
     background-color: #d7d7d7;
+
+}
+
+.lastColumn{
+  float: left;
+  width: 10%;
+  padding: 10px;
+  height: 10%; /* Should be removed. Only for demonstration */
+    background-color: #d7d7d7;
+
 }
 
 /* Create four equal columns that floats next to each other */
@@ -16,7 +26,7 @@
   float: left;
   width: 10%;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  height: 10%; /* Should be removed. Only for demonstration */
     background-color: #d7d7d7;
 }
 
@@ -25,6 +35,13 @@
   content: "";
   display: table;
   clear: both;
+}
+
+.title{
+  color: #6d000e;
+  font-size: 200%;
+  padding: 0;
+  margin: 0;
 }
 
 /* Responsive layout - makes the four columns stack on top of each other instead of next to each other */
@@ -42,4 +59,29 @@
   text-align: center;
   margin-left: 30%;
   margin-right: 30%;
+  margin-top:2%;
+}
+
+link {
+  border: 2px;
+}
+
+button {
+  background: #06206e;
+  padding: 10px 50px;
+  cursor: pointer;
+  color: #daf17f;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 120%
+}
+
+.buttons {
+  text-align: center;
+}
+
+.AdditionalComments {
+  background-color: #d7d7d7;
+  width: 100%;
+  padding: 10px;
 }

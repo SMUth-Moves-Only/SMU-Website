@@ -2,6 +2,10 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  text-align: center;
+}
+
 body {
   background-color: tan
 }
@@ -16,10 +20,9 @@ button {
   font-size: 120%
 }
 
-.buttons {
-  text-align: center;
-}
-
-.Login {
-  width: 100%;
+.Eval {
+  background: #06206e;
+  color: white;
+  padding: 10px 50px;
+  font-size: 200%
 }

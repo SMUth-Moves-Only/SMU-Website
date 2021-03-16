@@ -3,13 +3,20 @@ session_start();
 
 require 'dbh.inc.php';
 
+if (isset($_SESSION['criterion'])) {
+    for ($i = 0; $i < count($_SESSION['criterion']); $i++) {
+      $_POST[$_SESSION['criterion'][0]];
+}
+
 $sql = "SELECT student_id, first_name, last_name FROM student";
 $stmt = mysqli_stmt_init($conn);
 
 if (!mysqli_stmt_prepare($stmt, $sql)) {
 	header("Location: ../index.php?error=sqlerror");
 	exit();
-} else {
+}
+else {
+  mysqli_stmt_bind_param($stmt, "s", $email);
 	mysqli_stmt_execute($stmt);
 
 	//grabs the result for the stmt
@@ -23,26 +30,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 	}
 
 
-	$sql = "SELECT name FROM criterion";
-	$stmt = mysqli_stmt_init($conn);
-
-	if (!mysqli_stmt_prepare($stmt, $sql)) {
-		header("Location: ../index.php?error=sqlerror");
-		exit();
-	} else {
-		mysqli_stmt_execute($stmt);
-
-		//grabs the result for the stmt
-		$result = mysqli_stmt_get_result($stmt);
-
-		$i = 0;
-		while ($row = $result->fetch_assoc()) {
-			$_SESSION['criterion'][$i] = $row["name"];
-			$i++;
-		}
-	}
 
 
-
-	header("Location: ../peerevaluation.php?result=success");
+	//header("Location: ../evaluationsuccess.php?result=success");
 }
