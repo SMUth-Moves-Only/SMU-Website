@@ -1,9 +1,35 @@
-body {
-    background-color: antiquewhite
+html body {
+    padding: 0;
+    margin: 0;
+    background-color: #ffebc6;
 }
 
-div {
-    background-color: white;
-    border: 2px solid black;
-    width: 250px;
+header {
+    padding: 0;
+    margin: 0;
+    background-color: #102b72;
+    margin-left: 3%;
+    margin-right: 3%;
+    height: 15vh;
+}
+
+header .logo{
+    height: 15vh;
+}
+
+header .headerRight {
+    float: right;
+}
+
+header .headerBtn{
+    color: #daff8c;
+    text-decoration: none;
+    font-size: 200%;
+    padding: 2.5%;
+}
+
+header .headerImg{
+    margin-right: 1%;
+    height: 70%;
+    margin-top: 1%;
 }

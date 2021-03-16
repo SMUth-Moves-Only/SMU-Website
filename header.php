@@ -11,13 +11,10 @@ include "analytics.php";
 
 </head>
 
-<body>
-
-    <tr>
-        <img src="smu.png" alt="smu">
-        
-    </tr>
-
-</body>
+    <header>
+        <img class="logo" src="img/smuHeader.svg" alt="smu">
+        <img class="headerRight headerImg" src="img/threeLines.svg">
+        <a class="headerRight headerBtn" href="/SMU-Website">Home</a>
+    </header>
 
 </html>

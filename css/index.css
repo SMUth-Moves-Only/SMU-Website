@@ -1,0 +1,7 @@
+h1 {text-align: center;}
+body {background-color: tan}
+button {background: #06206e; padding: 10px 50px; cursor: pointer; color: #daf17f; margin: 10px; border-radius: 5px; font-size: 120%}
+.buttons{
+  text-align: center;
+}
+.Login {width: 100%; }
