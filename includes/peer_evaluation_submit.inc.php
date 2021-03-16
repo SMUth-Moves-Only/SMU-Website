@@ -27,8 +27,25 @@ for ($i = 0; $i < count($_SESSION['criterion']); $i++) {
 		mysqli_stmt_bind_param($stmt, "iiii", $id, $score, $studentIndex, $evalNum);
 		mysqli_stmt_execute($stmt);
 		
-
 	}
+}
+
+$sql = "INSERT INTO complete_peer_eval (student_idReceiving, student_idWriting, time_started, time_finished) VALUES (?,?,?,?)";
+$stmt = mysqli_stmt_init($conn);
+
+$date = date('Y-m-d H:i:s');
+
+if (!mysqli_stmt_prepare($stmt, $sql)) {
+	header("Location: ../index.php?error=sqlerror");
+	exit();
+} else {
+	if(isset($_SESSION["evalStart"])){
+		$startDate = $_SESSION["evalStart"];
+		echo $startDate;
+		echo $date;
+	}
+	mysqli_stmt_bind_param($stmt, "iiss", $studentIndex, $loggedInStudent, $startDate, $date);
+	mysqli_stmt_execute($stmt);
 }
 
 
