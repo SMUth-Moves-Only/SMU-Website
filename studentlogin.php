@@ -5,37 +5,42 @@ include "header.php";
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>studentlogin</title>
 
-    <link rel="stylesheet" href="css/studentlogin.css">
+<head>
+  <meta charset="utf-8">
+  <title>studentlogin</title>
 
-    <style src="js/index.js">
-    </style>
+  <link rel="stylesheet" href="css/studentlogin.css">
 
-  </head>
+  <style src="js/index.js">
+  </style>
 
-  <body>
+</head>
 
-    <div class="StudentLogin">
-      <h1>Student Login</h1>
+<body>
 
+
+  <div class="StudentLogin">
+    <h1>Student Login</h1>
+    <form action="includes/login.inc.php" method="post">
       <p><label>User Name <br>
-        <input type="text" name="userpass">
-      </label></p>
+          <input type="text" name="userEmail" required>
+        </label></p>
 
       <p><label>Password <br>
-        <input type="text" name="userpass">
-      </label></p>
-    </div>
+          <input type="password" type="text" name="userPass" required>
+        </label></p>
+      <div class="buttons">
+        <button type="submit"  name="login-submit">Log In</button>
+      </div>
+    </form>
+  </div>
 
 
-    <div class="buttons">
-              <button onclick="window.location='studentportal.php';">Log In</button>
-    </div>
 
-  </body>
+
+</body>
+
 </html>
 
 

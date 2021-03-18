@@ -21,9 +21,18 @@ include "header.php";
   <div>
 
     <h1>Student Portal</h1>
+    <br>
+    <?php
+    session_start();
+    if (isset($_SESSION['fName']) && isset($_SESSION['lName'])) {
+      echo '<h2 style="text-align: center">Welcome ' . $_SESSION['fName'] . " " . $_SESSION['lName'] . '</h2>';
+    }
+    ?>
+    <br>
   </div>
 
   <div class="courseInfo">
+
     <h2 style="float: left">Course Information</h2><br><br><br><br>
 
     <!--course title-->
