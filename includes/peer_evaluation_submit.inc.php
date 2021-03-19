@@ -5,10 +5,11 @@ require 'dbh.inc.php';
 
 $criterion_id = $_SESSION["criterion_id"];
 $studentIndex = $_SESSION["student_id"][array_search($_POST["StudentSelect"], $_SESSION["names"])];
+$addComments = $_POST["AddComm"];
 $evalNum = 5001;
 $loggedInStudent = 1002;
 
-$sql = "INSERT INTO student_criterion_score (criterion_id, score, student_id, peerEval_id) VALUES (?,?,?,?)";
+$sql = "INSERT INTO student_criterion_score (criterion_id, score, student_id, peerEval_id, additional_comments) VALUES (?,?,?,?,?)";
 $stmt = mysqli_stmt_init($conn);
 
 for ($i = 0; $i < count($_SESSION['criterion']); $i++) {
@@ -24,7 +25,7 @@ for ($i = 0; $i < count($_SESSION['criterion']); $i++) {
 			$score = $_POST[str_replace(" ", "_", $_SESSION['criterion'][$i])];
 		}
 
-		mysqli_stmt_bind_param($stmt, "iiii", $id, $score, $studentIndex, $evalNum);
+		mysqli_stmt_bind_param($stmt, "iiiis", $id, $score, $studentIndex, $evalNum, $addComments);
 		mysqli_stmt_execute($stmt);
 	}
 }
