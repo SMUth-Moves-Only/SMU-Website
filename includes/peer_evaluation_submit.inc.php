@@ -29,7 +29,7 @@ for ($i = 0; $i < count($_SESSION['criterion']); $i++) {
 	}
 }
 
-$sql = "INSERT INTO complete_peer_eval (student_idReceiving, student_idWriting, time_started, time_finished) VALUES (?,?,?,?)";
+$sql = "INSERT INTO complete_peer_eval (student_idReceiving, student_idWriting, time_started, time_finished) VALUES (?,?,?,?)"; //*********************************FIX************************************** */
 $stmt = mysqli_stmt_init($conn);
 
 $date = date('Y-m-d H:i:s');
