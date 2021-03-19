@@ -25,7 +25,7 @@ include "header.php";
     <?php
     session_start();
     if (isset($_SESSION['fName']) && isset($_SESSION['lName'])) {
-      echo '<h2 style="text-align: center">Welcome ' . $_SESSION['fName'] . " " . $_SESSION['lName'] . '</h2>';
+      echo '<h2 style="text-align: center" name="welcome">Welcome ' . $_SESSION['fName'] . " " . $_SESSION['lName'] . '</h2>';
     }
     ?>
     <br>

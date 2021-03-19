@@ -22,7 +22,6 @@ include "header.php";
       }
       ?>
     </select>
-
     <br><br>
     <div class="row">
       <div class="criterion">
@@ -77,7 +76,7 @@ include "header.php";
     <div class="AdditionalComments">
 
       <h1>Additional Comments</h1>
-      <textarea style="width: 100%" name="AddComm" rows="8"></textarea>
+      <textarea style="width: 100%" name="AddComm" rows="8" maxlength="250"></textarea>
     </div>
 
     <!--includes/peer_evaluation_submit.inc.php-->

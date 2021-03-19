@@ -14,7 +14,7 @@ include "header.php";
 
   <body>
 
-    <h1 class="Eval">Evaluation Successfully Submitted</h1>
+    <h1 class="Eval" name="EvalSuccess">Evaluation Successfully Submitted</h1>
 
     <h2>A confirmation email has been sent to your student email address.</h2>
 
