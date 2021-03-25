@@ -8,12 +8,15 @@ body {
 
 button {
   background: #06206e;
-  padding: 10px 50px;
+  padding: 10px 0px;
   cursor: pointer;
   color: #daf17f;
   margin: 10px;
   border-radius: 5px;
-  font-size: 120%
+  font-size: 120%;
+  width: 200px;
+  text-align: center;
+
 }
 
 .buttons {
