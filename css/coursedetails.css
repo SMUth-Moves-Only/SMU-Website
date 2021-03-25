@@ -20,6 +20,26 @@ button {
   font-size: 120%
 }
 
+.CT {
+  padding: 0px 150px;
+}
+
+.CID {
+  padding: 0px 162px;
+}
+
+.I {
+  padding: 0px 166px;
+}
+
+.T {
+  padding: 0px 194px;
+}
+
+.CN {
+  padding: 0px 126px;
+}
+
 .buttons {
   text-align: center;
 }
@@ -33,7 +53,7 @@ button {
   width: 50%;
   margin-left: 50%;
   transform: translate(-50%);
-  text-align: center;
+
   padding: 10px;
   border-radius: 15px;
   border: black;
