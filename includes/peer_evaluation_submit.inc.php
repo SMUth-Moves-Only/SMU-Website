@@ -3,37 +3,37 @@ session_start();
 
 require 'dbh.inc.php';
 
-$criterion_id = $_SESSION["criterion_id"];
-$studentIndex = $_SESSION["student_id"][array_search($_POST["StudentSelect"], $_SESSION["names"])];
+$studentIndex = $_SESSION["peer_eval_student_id"][array_search($_POST["StudentSelect"], $_SESSION["student_names"])];
 $addComments = $_POST["AddComm"];
-$evalNum = 5001;
-$loggedInStudent = 1002;
+$evalNum = 1;
+$loggedInStudent = $_SESSION["id"];
 
-$sql = "INSERT INTO student_criterion_score (criterion_id, score, student_id, peerEval_id, additional_comments) VALUES (?,?,?,?,?)";
+//ADD PEER EVAL ID
+$sql = "INSERT INTO student_criterion_score (criterion_id, score, student_id, student_receiving_id, peerEval_id) VALUES (?,?,?,?,?)";
 $stmt = mysqli_stmt_init($conn);
 
 for ($i = 0; $i < count($_SESSION['criterion']); $i++) {
+
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
 		header("Location: ../index.php?error=sqlerror");
 		exit();
-	} else {
+	} 
+	else {
 		if (isset($_SESSION['criterion_id'])) {
-			$id = $_SESSION['criterion_id'][$i];
+			$criterion_id = $_SESSION['criterion_id'][$i];
 		}
 
 		if (isset($_POST[str_replace(" ", "_", $_SESSION['criterion'][$i])])) {
 			$score = $_POST[str_replace(" ", "_", $_SESSION['criterion'][$i])];
 		}
 
-		mysqli_stmt_bind_param($stmt, "iiiis", $id, $score, $studentIndex, $evalNum, $addComments);
+		mysqli_stmt_bind_param($stmt, "iiiii", $criterion_id, $score, $loggedInStudent, $studentIndex, $evalNum);
 		mysqli_stmt_execute($stmt);
 	}
 }
 
-$sql = "INSERT INTO complete_peer_eval (student_idReceiving, student_idWriting, time_started, time_finished) VALUES (?,?,?,?)"; //*********************************FIX************************************** */
+$sql = "INSERT INTO additional_comments (student_id, peerEval_id, student_receiving_id, additional_comments) VALUES (?,?,?,?)";
 $stmt = mysqli_stmt_init($conn);
-
-$date = date('Y-m-d H:i:s');
 
 if (!mysqli_stmt_prepare($stmt, $sql)) {
 	header("Location: ../index.php?error=sqlerror");
@@ -42,13 +42,16 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 	if (isset($_SESSION["evalStart"])) {
 		$startDate = $_SESSION["evalStart"];
 	}
-	mysqli_stmt_bind_param($stmt, "iiss", $studentIndex, $loggedInStudent, $startDate, $date);
+	mysqli_stmt_bind_param($stmt, "iiis", $loggedInStudent, $evalNum, $studentIndex, $addComments);
 	mysqli_stmt_execute($stmt);
-
-
 
 	header("Location: ../evaluationsuccess.php?result=success");
 }
+
+
+
+
+
 
 
 //Include PHPMailer classes

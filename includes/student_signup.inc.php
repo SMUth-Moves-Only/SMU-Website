@@ -97,7 +97,7 @@ if (isset($_POST['student-signup'])) {
 			}
 			//grab data from database
 			else {
-				$sql = "INSERT INTO student (first_name, last_name, major, email_address, student_password, team_id, course_id) VALUES (?, ?, ?, ?, ?, 1000, 1000)";
+				$sql = "INSERT INTO student (first_name, last_name, major, email_address, student_password, live, date_imported) VALUES (?, ?, ?, ?, ?, 1, NOW())";
 
 				$stmt = mysqli_stmt_init($conn);
 

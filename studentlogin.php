@@ -22,7 +22,7 @@ include "header.php";
 
   <div class="StudentLogin">
     <h1>Student Login</h1>
-    <form action="includes/login.inc.php" method="post" name="studentLogin">
+    <form action="includes/student_login.inc.php" method="post" name="studentLogin">
       <p><label>User Name <br>
           <input type="text" name="userEmail" required>
         </label></p>

@@ -13,9 +13,9 @@ include "header.php";
     <label>Student Name: </label>
     <select id="StudentSelect" name="StudentSelect">
       <?php
-      if (isset($_SESSION['names'])) {
-        for ($i = 0; $i < count($_SESSION['names']); $i++) {
-          echo '<option>' . $_SESSION['names'][$i] . '</option>';
+      if (isset($_SESSION['student_names'])) {
+        for ($i = 0; $i < count($_SESSION['student_names']); $i++) {
+          echo '<option>' . $_SESSION['student_names'][$i] . '</option>';
         }
       } else {
         echo '<option value="" disabled selected hidden>No Names</option>';

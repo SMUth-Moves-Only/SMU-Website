@@ -52,7 +52,7 @@ include "header.php";
   </div>
 
   <div class="buttons">
-  <button onclick="window.location='includes/student_login.inc.php';">Go to Peer Evaluation</button>
+  <button onclick="window.location='includes/populate_peer_eval.inc.php';">Go to Peer Evaluation</button>
 </div>
 
 </body>

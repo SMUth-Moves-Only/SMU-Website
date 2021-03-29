@@ -19,7 +19,7 @@ if(isset($_POST['login-submit'])){
 	else
 	{
 		//check database
-		$sql = "SELECT * FROM student WHERE email_address=?;";
+		$sql = "SELECT * FROM professor WHERE email_address=?;";
 		$stmt = mysqli_stmt_init($conn);
 
 		if(!mysqli_stmt_prepare($stmt, $sql))
@@ -57,6 +57,8 @@ if(isset($_POST['login-submit'])){
 					//saves information not sensitive in website
 					$_SESSION['fName'] = $row['first_name'];
 					$_SESSION['lName'] = $row['last_name'];
+					$_SESSION['id'] = $row['id'];
+					
 
 					//take user back with success message
 					header("Location: ../studentportal.php?login=success");
