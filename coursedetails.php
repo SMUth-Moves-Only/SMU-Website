@@ -1,5 +1,9 @@
 <?php
 include "header.php";
+if (!isset($_SESSION['student_id'])) {
+  header("Location: ./?error=notloggedin");
+  exit();
+}
 ?>
 
 <!--Dropdown menus for course title and course ID. Populate both dropdown menus from student's available courses-->

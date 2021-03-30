@@ -18,7 +18,7 @@ include "header.php";
         <div class="buttons">
           <button onclick="window.location='professor_login.php';">INSTRUCTOR</button> <br>
           <button onclick="window.location='studentlogin.php';">STUDENT</button> <br>
-          <button>ADMINISTRATOR</button>
+          <button onclick="window.location='admin_login.php';">ADMINISTRATOR</button>
         </div>
     </div>
 

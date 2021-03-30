@@ -1,5 +1,9 @@
 <?php
 include "header.php";
+if (!isset($_SESSION['student_id'])) {
+  header("Location: ./?error=notloggedin");
+  exit();
+}
 ?>
 
 
@@ -23,7 +27,7 @@ include "header.php";
     <h1>Student Portal</h1>
     <br>
     <?php
-    if (isset($_SESSION['fName']) && isset($_SESSION['lName'])) {
+    if (isset($_SESSION['fName']) && isset($_SESSION['lName']) && isset($_SESSION["professor_id"])) {
       echo '<h2 style="text-align: center" name="welcome">Welcome ' . $_SESSION['fName'] . " " . $_SESSION['lName'] . '</h2>';
     }
     ?>

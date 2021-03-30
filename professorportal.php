@@ -1,5 +1,9 @@
 <?php
 include "header.php";
+if (!isset($_SESSION['professor_id'])) {
+    header("Location: ./?error=notloggedin");
+    exit();
+}
 ?>
 
 
@@ -29,7 +33,8 @@ include "header.php";
         <div class="width50">
             <div class="row">
                 <div class="column">
-                    <button onclick="window.location='course_file_upload.php';">Import Students and Courses</button> <!--FILE TO UPLOAD COURSES. MAY NEED TO ALSO INCLUDE CODE FROM STUDENT_FILE_UPLOAD-->
+                    <button onclick="window.location='course_file_upload.php';">Import Students and Courses</button>
+                    <!--FILE TO UPLOAD COURSES. MAY NEED TO ALSO INCLUDE CODE FROM STUDENT_FILE_UPLOAD-->
                 </div>
                 <div class="column">
                     <button>Schedule Peer Evaluation</button>

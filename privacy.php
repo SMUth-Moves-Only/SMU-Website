@@ -1,10 +1,10 @@
 <?php
     require_once "analytics.php";
 ?>
-<title> AirMQTT - Privacy Policy </title>
-<h1>Privacy Policy for AirMQTT Broker Hosting</h1>
+<title> SMU Peer Evaluation - Privacy Policy </title>
+<h1>Privacy Policy for SMU Peer Evaluation</h1>
 
-<p>At AirMQTT, accessible from https://www.airmqtt.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by AirMQTT and how we use it.</p>
+<p>At SMU Peer Evaluation, accessible from https://www.smupeerevaluation.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by AirMQTT and how we use it.</p>
 
 <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us</a>.</p>
 

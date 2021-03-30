@@ -1,6 +1,10 @@
 <!--Take in student username and password. Forgot username and forgot password buttons-->
 <?php
 include "header.php";
+if (isset($_SESSION['student_id'])) {
+  header("Location: ./studentportal.php");
+  exit();
+}
 ?>
 
 <!DOCTYPE html>
