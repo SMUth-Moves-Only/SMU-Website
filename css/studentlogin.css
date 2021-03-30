@@ -1,5 +1,6 @@
 h1 {
   text-align: center;
+  color: #06206e;
 }
 
 body {
@@ -21,5 +22,19 @@ button {
 }
 
 .StudentLogin {
-  text-align: center;
+
+}
+
+label {
+  color: 8a704c;
+}
+
+input {
+  width: 20%;
+  border: 30%;
+}
+
+.inputs {
+  margin-left: 42%;
+  width: 80%;
 }

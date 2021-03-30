@@ -26,7 +26,6 @@ if (isset($_POST['student-signup'])) {
 	//fetch information from inputs
 	$fName = $_POST["fName"];
 	$lName = $_POST["lName"];
-	$major = $_POST["major"];
 	$email = $_POST['email'];
 	$password = $_POST['pwd'];
 	$passwordRepeat = $_POST['repeatpwd'];
@@ -60,7 +59,7 @@ if (isset($_POST['student-signup'])) {
 	else {
 		//use prepared statements to protect database
 
-		$sql = "SELECT email_address FROM professor WHERE email_address=?";
+		$sql = "SELECT email_address FROM administrator WHERE email_address=?";
 
 		$stmt = mysqli_stmt_init($conn);
 
@@ -97,7 +96,7 @@ if (isset($_POST['student-signup'])) {
 			}
 			//grab data from database
 			else {
-				$sql = "INSERT INTO professor (first_name, last_name, email_address, password, live) VALUES (?, ?, ?, ?, 1)";
+				$sql = "INSERT INTO student (first_name, last_name, email_address, admin_password) VALUES (?, ?, ?, ?)";
 
 				$stmt = mysqli_stmt_init($conn);
 
@@ -112,10 +111,10 @@ if (isset($_POST['student-signup'])) {
 
 					//hash the password
 					//bcrypt always update when it gets decrypted
-					if(strlen($password) < 8)
+					/*if(strlen($password) < 8)
 					{
 						echo "Enter a password that is at least 8 characters";
-					}
+					}*/
 					//Check against list of common passwords. Hash common passwords or compare unhashed?
 					$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 

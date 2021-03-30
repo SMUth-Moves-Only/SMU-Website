@@ -1,13 +1,5 @@
 h1 {
-  text-align: center;
-}
-
-h2 {
-  text-align: center;
-}
-
-body {
-  background-color: tan
+  text-align: left;
 }
 
 button {
@@ -20,6 +12,11 @@ button {
   font-size: 120%
 }
 
+.textboxes{
+  text-align:center;
+}
+
+/*
 .CT {
   padding: 0px 150px;
 }
@@ -38,14 +35,10 @@ button {
 
 .CN {
   padding: 0px 126px;
-}
+}*/
 
 .buttons {
   text-align: center;
-}
-
-.Login {
-  width: 100%;
 }
 
 .courseInfo{
@@ -59,4 +52,29 @@ button {
   border: black;
   border-style: solid;
   border-width: 1px;
+}
+
+
+
+
+.lcolumn {
+  width: 50%;
+  float: right;
+}
+.rcolumn {
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
 }

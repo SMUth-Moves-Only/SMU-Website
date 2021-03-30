@@ -1,22 +1,26 @@
 <?php
-session_start();
 include "header.php";
- ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>peerevaluation</title>
-  </head>
 
-    <link rel="stylesheet" href="css/evaluationsuccess.css">
+<head>
+  <meta charset="utf-8">
+  <title>peerevaluation</title>
+</head>
 
-  <body>
+<link rel="stylesheet" href="css/evaluationsuccess.css">
 
-    <h1 class="Eval" name="EvalSuccess">Evaluation Successfully Submitted</h1>
+<body>
+  <div class="checkmark">
+    <img src="img/checkmark.svg" alt="check">
+  </div>
 
-    <h2>A confirmation email has been sent to your student email address.</h2>
+  <h3>Thank you! <br> You evaluation has been submitted <br> successfully.</h3>
 
-  </body>
+  <h1>A confirmation email has been sent to your student email address.</h1>
+
+</body>
+
 </html>

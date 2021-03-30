@@ -9,7 +9,7 @@ include "header.php";
 
 <head>
   <meta charset="utf-8">
-  <title>studentportal</title>
+  <title>Student Portal</title>
 
   <link rel="stylesheet" href="css/studentportal.css">
 
@@ -23,7 +23,6 @@ include "header.php";
     <h1>Student Portal</h1>
     <br>
     <?php
-    session_start();
     if (isset($_SESSION['fName']) && isset($_SESSION['lName'])) {
       echo '<h2 style="text-align: center" name="welcome">Welcome ' . $_SESSION['fName'] . " " . $_SESSION['lName'] . '</h2>';
     }
@@ -37,7 +36,7 @@ include "header.php";
 
     <!--course title-->
     <form action="" method="post">
-      <label>Course: </label>
+      <label>Course Title </label>
       <select id="CourseSelect">
         <?php
         if (isset($_SESSION['courses'])) {
@@ -54,7 +53,7 @@ include "header.php";
 
     <!--course id-->
     <form action="" method="post">
-      <label>Course ID: </label>
+      <label>Course ID </label>
       <select id="CourseID">
         <?php
         if (isset($_SESSION['courses'])) {

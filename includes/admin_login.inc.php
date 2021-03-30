@@ -19,7 +19,7 @@ if(isset($_POST['login-submit'])){
 	else
 	{
 		//check database
-		$sql = "SELECT * FROM professor WHERE email_address=?;";
+		$sql = "SELECT * FROM administrator WHERE email_address=?;";
 		$stmt = mysqli_stmt_init($conn);
 
 		if(!mysqli_stmt_prepare($stmt, $sql))
@@ -42,7 +42,7 @@ if(isset($_POST['login-submit'])){
 				//check password with reverse hash
 				//first is password user tried to use and second is password from database
 				//true or false statement
-				if($password == $row['password']){
+				if($password == $row['admin_password']){
                     $pwdCheck = true;
                 }
                 else{
@@ -58,14 +58,14 @@ if(isset($_POST['login-submit'])){
 					$_SESSION['fName'] = $row['first_name'];
 					$_SESSION['lName'] = $row['last_name'];
 					$_SESSION['id'] = $row['id'];
-
+					echo "Logged In";
 					//take user back with success message
-					header("Location: ../professorportal.php?login=success");
+					//header("Location: ../studentportal.php?login=success");
 				}
 
 				else
 				{
-					header("Location: ../professor_login.php?error=wrongpwd");
+					header("Location: ../studentlogin.php?error=wrongpwd");
 					exit();
 				}
 			}
@@ -74,7 +74,7 @@ if(isset($_POST['login-submit'])){
 			//if data not recieved
 			else
 			{
-				header("Location: ../professor_login.php?error=nouser");
+				header("Location: ../studentlogin.php?error=nouser");
 				exit();
 			}
 		}

@@ -16,7 +16,7 @@ include "header.php";
     <div class="Login">
       <h1>Log In</h1> <br>
         <div class="buttons">
-          <button>INSTRUCTOR</button> <br>
+          <button onclick="window.location='professor_login.php';">INSTRUCTOR</button> <br>
           <button onclick="window.location='studentlogin.php';">STUDENT</button> <br>
           <button>ADMINISTRATOR</button>
         </div>

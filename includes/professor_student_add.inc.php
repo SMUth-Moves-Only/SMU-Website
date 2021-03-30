@@ -4,7 +4,7 @@ session_start();
 
 require 'dbh.inc.php';
 
-if (isset($_POST['course-import'])) {
+if (isset($_POST['student-import'])) {
 
     $target_dir = "../csv/";
     $fileName = 'd' . date("Y-m-d") . 't' . date("h-i-s") . basename($_FILES["fileToUpload"]["name"]);
@@ -33,47 +33,28 @@ if (isset($_POST['course-import'])) {
             echo "The file " . htmlspecialchars($fileName) . " has been uploaded.";
 
             $csv = array_map('str_getcsv', file('../csv/' . $fileName));
-            $courseID = "";
-            $termID = "";
-            foreach ($csv as &$course) {
-                
-                $sql = "SELECT id FROM course WHERE course_number = ?";
+            $studentID = "";
+            foreach ($csv as &$student) {
+
+                $sql = "SELECT id FROM student WHERE first_name = ? AND last_name = ?";
                 $stmt = mysqli_stmt_init($conn);
 
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                     header("Location: ../index.php?error=sqlerror");
                     exit();
                 } else {
-                    mysqli_stmt_bind_param($stmt, "s", $course[0]);
+                    mysqli_stmt_bind_param($stmt, "ss", $student[0], $student[1]);
                     mysqli_stmt_execute($stmt);
                     $result = mysqli_stmt_get_result($stmt);
 
                     //checks if result was recieved
                     //stores in array
                     if ($row = mysqli_fetch_assoc($result)) {
-                        $courseID = $row['id'];
+                        $studentID = $row['id'];
                     }
 
-
-                    $sql = "SELECT id FROM term WHERE name = ?";
-
-
-                    if (!mysqli_stmt_prepare($stmt, $sql)) {
-                        header("Location: ../index.php?error=sqlerror");
-                        exit();
-                    } else {
-                        mysqli_stmt_bind_param($stmt, "s", $course[1]);
-                        mysqli_stmt_execute($stmt);
-                        $result = mysqli_stmt_get_result($stmt);
-
-                        //checks if result was recieved
-                        //stores in array
-                        if ($row = mysqli_fetch_assoc($result)) {
-                            $termID = $row['id'];
-                        }
-
-                        $professor_ID = 3;
-                        $sql = "INSERT into professor_course (professor_id,course_id,term_id) VALUES (?,?,?)";
+                        $professorCourseID = 2;
+                        $sql = "INSERT into student_course (student_id, prof_course_id) VALUES (?,?)";
                         $result = mysqli_stmt_get_result($stmt);
 
                         //checks if result was recieved
@@ -84,12 +65,13 @@ if (isset($_POST['course-import'])) {
                             header("Location: ../index.php?error=sqlerror");
                             exit();
                         } else {
-                            mysqli_stmt_bind_param($stmt, "iii", $professor_ID, $courseID, $termID);
+                            mysqli_stmt_bind_param($stmt, "ii", $studentID, $professorCourseID);
                             mysqli_stmt_execute($stmt);
+                            echo "Students added!";
+                            //header("Location: ../index.php?result=studentscreated");
                         }
                     }
                 }
-            }
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
