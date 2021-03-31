@@ -18,10 +18,8 @@ require 'PHPMailer/src/SMTP.php';
 //checks for submit button submission
 if (isset($_POST['student-signup'])) {
 
-
 	//require database handler
 	require 'dbh.inc.php';
-
 
 	//fetch information from inputs
 	$fName = $_POST["fName"];
