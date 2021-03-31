@@ -3,6 +3,7 @@ session_start();
 
 require 'dbh.inc.php';
 
+//get all students from database
 $sql = "SELECT id, first_name, last_name FROM student";
 $stmt = mysqli_stmt_init($conn);
 
@@ -15,6 +16,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 	//grabs the result for the stmt
 	$result = mysqli_stmt_get_result($stmt);
 
+	//add all students to session variables for dropdown
 	$i = 0;
 	while ($row = $result->fetch_assoc()) {
 		$_SESSION['peer_eval_student_id'][$i] = $row["id"];
@@ -22,7 +24,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 		$i++;
 	}
 
-
+	//get all criterion and their ids
 	$sql = "SELECT id, name FROM criterion";
 	$stmt = mysqli_stmt_init($conn);
 
@@ -34,7 +36,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 
 		//grabs the result for the stmt
 		$result = mysqli_stmt_get_result($stmt);
-
+		//save the criterion as session variables for output on page
 		$i = 0;
 		while ($row = $result->fetch_assoc()) {
 			$_SESSION['criterion_id'][$i] = $row["id"];

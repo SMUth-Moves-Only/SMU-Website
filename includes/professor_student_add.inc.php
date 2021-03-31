@@ -32,10 +32,12 @@ if (isset($_POST['student-import'])) {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             echo "The file " . htmlspecialchars($fileName) . " has been uploaded.";
 
+            //convert csv into an array
             $csv = array_map('str_getcsv', file('../csv/' . $fileName));
             $studentID = "";
+            //for each student in the uploaded csv file
             foreach ($csv as &$student) {
-
+                //get the student id from the first name and last name
                 $sql = "SELECT id FROM student WHERE first_name = ? AND last_name = ?";
                 $stmt = mysqli_stmt_init($conn);
 
@@ -47,20 +49,16 @@ if (isset($_POST['student-import'])) {
                     mysqli_stmt_execute($stmt);
                     $result = mysqli_stmt_get_result($stmt);
 
-                    //checks if result was recieved
-                    //stores in array
+
                     if ($row = mysqli_fetch_assoc($result)) {
                         $studentID = $row['id'];
                     }
 
                     $professorCourseID = $_POST['CourseSelect'];
-                    var_dump($_POST);
+                    
+                    //insert the student into the course
                     $sql = "INSERT into student_course (student_id, prof_course_id) VALUES (?,?)";
                     $result = mysqli_stmt_get_result($stmt);
-
-                    //checks if result was recieved
-                    //stores in array
-
 
                     if (!mysqli_stmt_prepare($stmt, $sql)) {
                         header("Location: ../professorportal.php?error=sqlerror");

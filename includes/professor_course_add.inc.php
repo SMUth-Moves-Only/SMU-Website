@@ -31,14 +31,19 @@ if (isset($_POST['course-import'])) {
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 
+            //convert csv file to array
             $csv = array_map('str_getcsv', file('../csv/' . $fileName));
+            //create course and term variables
             $courseID = "";
             $termID = "";
 
+            //set up total number of courses imported and variable for if both term and course are valid
             $imported = array(0, 0);
             $total = 0;
+            //for each row in the csv file
             foreach ($csv as &$course) {
-
+                //convert course number to id in database
+                //$course[0] is course number, $course[1] is term name
                 $sql = "SELECT id FROM course WHERE course_number = ?";
                 $stmt = mysqli_stmt_init($conn);
 
@@ -50,8 +55,6 @@ if (isset($_POST['course-import'])) {
                     mysqli_stmt_execute($stmt);
                     $result = mysqli_stmt_get_result($stmt);
 
-                    //checks if result was recieved
-                    //stores in array
                     if ($row = mysqli_fetch_assoc($result)) {
                         $courseID = $row['id'];
                         if ($courseID != "") {
@@ -60,7 +63,7 @@ if (isset($_POST['course-import'])) {
                             $imported[0] = 0;
                         }
                     }
-
+                    //convert term to id from database
                     $sql = "SELECT id FROM term WHERE name = ?";
 
 
@@ -84,15 +87,15 @@ if (isset($_POST['course-import'])) {
                         }
 
                         if ($imported[0] == 1 && $imported[1] == 1) {
-                            $total++;
+                            $total++; //get total number of courses imported
                         }
                         echo $total;
 
+                        //insert into the professor_course table (assign all information for that specific "CRN")
                         $sql = "INSERT into professor_course (professor_id,course_id,term_id) VALUES (?,?,?)";
                         $result = mysqli_stmt_get_result($stmt);
 
-                        //checks if result was recieved
-                        //stores in array
+                        //logged in professor ID
                         $professor_ID = $_SESSION['professor_id'];
 
                         if (!mysqli_stmt_prepare($stmt, $sql)) {

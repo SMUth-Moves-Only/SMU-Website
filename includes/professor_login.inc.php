@@ -5,7 +5,7 @@ if (isset($_POST['login-submit'])) {
 	//require the database handler
 	require 'dbh.inc.php';
 
-	//option to use email or username
+	//store email and password as variables
 	$mailuid = $_POST['userEmail'];
 	$password = $_POST['userPass'];
 
@@ -14,7 +14,7 @@ if (isset($_POST['login-submit'])) {
 		header("Location: ../studentlogin.php?error=emptyfields");
 		exit();
 	} else {
-		//check database
+		//get user with that email address
 		$sql = "SELECT * FROM professor WHERE email_address=?;";
 		$stmt = mysqli_stmt_init($conn);
 
@@ -29,11 +29,9 @@ if (isset($_POST['login-submit'])) {
 			$result = mysqli_stmt_get_result($stmt);
 
 			//checks if result was recieved
-			//stores in array
 			if ($row = mysqli_fetch_assoc($result)) {
-				//check password with reverse hash
-				//first is password user tried to use and second is password from database
-				//true or false statement
+				//check password
+				//set up reverse hash
 				if ($password == $row['password']) {
 					$pwdCheck = true;
 				} else {
@@ -42,54 +40,47 @@ if (isset($_POST['login-submit'])) {
 
 				if ($pwdCheck == true) {
 
-
+					//destroy old session if signed in previously
 					//have session started to end it
 					session_start();
-
 					//takes all session variables and deletes all values
 					session_unset();
-
 					//destroys the session
 					session_destroy();
 
 
-
+					//start session for global variables
 					session_start();
+
+					//assign name and id into session variables
 					$_SESSION['fName'] = $row['first_name'];
 					$_SESSION['lName'] = $row['last_name'];
 					$_SESSION['professor_id'] = $row['id'];
 
-					$sql = "SELECT  professor_course.id, term_id, course_name, course_number, course_id, name, start_date, end_date
-					FROM professor_course 
-					JOIN course AS c ON c.id=professor_course.course_id
-					JOIN term AS t ON t.id=professor_course.term_id
-					WHERE professor_id = ?;";
+					//get course information for all courses that the professor is an instructor for
+					$sql = "SELECT  professor_course.id, term_id, course_name, course_number, course_id, name, start_date, end_date FROM professor_course JOIN course AS c ON c.id=professor_course.course_id JOIN term AS t ON t.id=professor_course.term_id WHERE professor_id = ?;";
 					$stmt = mysqli_stmt_init($conn);
 
 					if (!mysqli_stmt_prepare($stmt, $sql)) {
 						header("Location: ../index.php?error=sqlerror");
 						exit();
 					} else {
+						//get all courses professor is a part of based on professor id
 						mysqli_stmt_bind_param($stmt, "i", $row['id']);
 						mysqli_stmt_execute($stmt);
 
 						//grabs the result for the stmt
 						$result = mysqli_stmt_get_result($stmt);
 
-
-						//checks if result was recieved
-						//stores in array
+						//increment for course_info session variable
 						$i = 0;
 
+						//store course information in a nested array
 						while ($row = $result->fetch_assoc()) {
 							$_SESSION['course_info'][$i] = array($row['id'], $row['course_id'], $row['course_name'], $row['course_number'], $row['name']);
 							$i++;
 						}
-						//start a session for global variable
 
-
-						//saves information not sensitive in website
-						//take user back with success message
 						header("Location: ../professorportal.php?login=success");
 					}
 				} else {
@@ -98,8 +89,7 @@ if (isset($_POST['login-submit'])) {
 				}
 			}
 
-
-			//if data not recieved
+			//if user is not in database at all
 			else {
 				header("Location: ../professor_login.php?error=nouser");
 				exit();

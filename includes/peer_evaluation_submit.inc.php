@@ -1,14 +1,16 @@
 <?php
+//start session and require database handler
 session_start();
 
 require 'dbh.inc.php';
 
+//store student, comments, eval number, and logged in student as variables
 $studentIndex = $_SESSION["peer_eval_student_id"][array_search($_POST["StudentSelect"], $_SESSION["student_names"])];
 $addComments = $_POST["AddComm"];
-$evalNum = 1;
+$evalNum = 1;//ADD PEER EVAL ID
 $loggedInStudent = $_SESSION["student_id"];
 
-//ADD PEER EVAL ID
+//add criterion and scores into database
 $sql = "INSERT INTO student_criterion_score (criterion_id, score, student_id, student_receiving_id, peerEval_id) VALUES (?,?,?,?,?)";
 $stmt = mysqli_stmt_init($conn);
 
@@ -19,10 +21,12 @@ for ($i = 0; $i < count($_SESSION['criterion']); $i++) {
 		exit();
 	} 
 	else {
+		//add criterion ids to variable
 		if (isset($_SESSION['criterion_id'])) {
 			$criterion_id = $_SESSION['criterion_id'][$i];
 		}
 
+		//add score to variable
 		if (isset($_POST[str_replace(" ", "_", $_SESSION['criterion'][$i])])) {
 			$score = $_POST[str_replace(" ", "_", $_SESSION['criterion'][$i])];
 		}
@@ -32,16 +36,16 @@ for ($i = 0; $i < count($_SESSION['criterion']); $i++) {
 	}
 }
 
+//add additional comments into the database
 $sql = "INSERT INTO additional_comments (student_id, peerEval_id, student_receiving_id, additional_comments) VALUES (?,?,?,?)";
 $stmt = mysqli_stmt_init($conn);
 
 if (!mysqli_stmt_prepare($stmt, $sql)) {
 	header("Location: ../index.php?error=sqlerror");
 	exit();
-} else {
-	if (isset($_SESSION["evalStart"])) {
-		$startDate = $_SESSION["evalStart"];
-	}
+} 
+else {
+
 	mysqli_stmt_bind_param($stmt, "iiis", $loggedInStudent, $evalNum, $studentIndex, $addComments);
 	mysqli_stmt_execute($stmt);
 
@@ -51,7 +55,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 
 
 
-
+//send email once evaluation is submitted to database
 
 
 //Include PHPMailer classes
