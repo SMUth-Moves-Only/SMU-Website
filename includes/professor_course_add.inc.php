@@ -20,7 +20,7 @@ if (isset($_POST['course-import'])) {
 
     // Allow certain file formats
     if ($imageFileType != "csv") {
-
+        header("Location: ../professorportal.php?error=notcsv");
         $uploadOk = 0;
     }
 
