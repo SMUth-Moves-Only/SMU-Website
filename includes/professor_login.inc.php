@@ -59,7 +59,7 @@ if (isset($_POST['login-submit'])) {
 					$_SESSION['lName'] = $row['last_name'];
 					$_SESSION['professor_id'] = $row['id'];
 
-					$sql = "SELECT term_id, course_name, course_number, course_id, name, start_date, end_date
+					$sql = "SELECT  professor_course.id, term_id, course_name, course_number, course_id, name, start_date, end_date
 					FROM professor_course 
 					JOIN course AS c ON c.id=professor_course.course_id
 					JOIN term AS t ON t.id=professor_course.term_id
@@ -82,7 +82,7 @@ if (isset($_POST['login-submit'])) {
 						$i = 0;
 
 						while ($row = $result->fetch_assoc()) {
-							$_SESSION['course_info'][$i] = array($row['course_id'], $row['course_name'], $row['course_number'], $row['name']);
+							$_SESSION['course_info'][$i] = array($row['id'], $row['course_id'], $row['course_name'], $row['course_number'], $row['name']);
 							$i++;
 						}
 						//start a session for global variable

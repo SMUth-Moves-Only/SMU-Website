@@ -50,7 +50,7 @@ if (!isset($_SESSION['professor_id'])) {
             </div>
         </div>
     </div>
-
+<a href="student_import.php">test</a>
 
 
 </body>

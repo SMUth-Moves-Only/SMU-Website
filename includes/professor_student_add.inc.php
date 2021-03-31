@@ -53,7 +53,8 @@ if (isset($_POST['student-import'])) {
                         $studentID = $row['id'];
                     }
 
-                        $professorCourseID = 2;
+                        $professorCourseID = $_POST['CourseSelect'];
+                        var_dump($_POST);
                         $sql = "INSERT into student_course (student_id, prof_course_id) VALUES (?,?)";
                         $result = mysqli_stmt_get_result($stmt);
 
@@ -68,7 +69,7 @@ if (isset($_POST['student-import'])) {
                             mysqli_stmt_bind_param($stmt, "ii", $studentID, $professorCourseID);
                             mysqli_stmt_execute($stmt);
                             echo "Students added!";
-                            //header("Location: ../index.php?result=studentscreated");
+                            //header("Location: ../professorportal.php?result=studentscreated");
                         }
                     }
                 }

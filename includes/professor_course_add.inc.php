@@ -6,6 +6,7 @@ require 'dbh.inc.php';
 
 if (isset($_POST['course-import'])) {
 
+
     $target_dir = "../csv/";
     $fileName = 'd' . date("Y-m-d") . 't' . date("h-i-s") . basename($_FILES["fileToUpload"]["name"]);
     $target_file = $target_dir . $fileName;
@@ -53,7 +54,7 @@ if (isset($_POST['course-import'])) {
                     if ($row = mysqli_fetch_assoc($result)) {
                         $courseID = $row['id'];
                     }
-
+                    echo $course[0] . '<br>' . $course[1] . '<br>';
 
                     $sql = "SELECT id FROM term WHERE name = ?";
 
@@ -72,13 +73,13 @@ if (isset($_POST['course-import'])) {
                             $termID = $row['id'];
                         }
 
-                        $professor_ID = 3;
+
                         $sql = "INSERT into professor_course (professor_id,course_id,term_id) VALUES (?,?,?)";
                         $result = mysqli_stmt_get_result($stmt);
 
                         //checks if result was recieved
                         //stores in array
-
+                        $professor_ID = $_SESSION['professor_id'];
 
                         if (!mysqli_stmt_prepare($stmt, $sql)) {
                             header("Location: ../index.php?error=sqlerror");
@@ -86,76 +87,13 @@ if (isset($_POST['course-import'])) {
                         } else {
                             mysqli_stmt_bind_param($stmt, "iii", $professor_ID, $courseID, $termID);
                             mysqli_stmt_execute($stmt);
-                            header("Location: ../index.php?result=coursescreated");
                         }
                     }
                 }
             }
+            header("Location: ../index.php?result=coursescreated");
         } else {
             echo "Sorry, there was an error uploading your file.";
-        }
-    }
-}
-
-if (isset($_POST['course-add'])) {
-
-    $courseID = "";
-    $termName = $_POST["termName"];
-    $courseNumber = $_POST["courseNum"];
-
-    $sql = "SELECT id FROM course WHERE course_number = ?";
-    $stmt = mysqli_stmt_init($conn);
-
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("Location: ../index.php?error=sqlerror");
-        exit();
-    } else {
-        mysqli_stmt_bind_param($stmt, "s", $courseNumber);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-
-        //checks if result was recieved
-        //stores in array
-        if ($row = mysqli_fetch_assoc($result)) {
-            $courseID = $row['id'];
-        }
-
-
-        $professor_ID = 3;
-
-        $sql = "SELECT id FROM term WHERE name = ?";
-
-
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location: ../index.php?error=sqlerror");
-            exit();
-        } else {
-            mysqli_stmt_bind_param($stmt, "s", $termName);
-            mysqli_stmt_execute($stmt);
-            $result = mysqli_stmt_get_result($stmt);
-
-            //checks if result was recieved
-            //stores in array
-            if ($row = mysqli_fetch_assoc($result)) {
-                $termID = $row['id'];
-            }
-
-            $professor_ID = 3;
-            
-            $sql = "INSERT into professor_course (professor_id,course_id,term_id) VALUES (?,?,?)";
-            $result = mysqli_stmt_get_result($stmt);
-
-            //checks if result was recieved
-            //stores in array
-
-            if (!mysqli_stmt_prepare($stmt, $sql)) {
-                header("Location: ../index.php?error=sqlerror");
-                exit();
-            } else {
-                mysqli_stmt_bind_param($stmt, "iii", $professor_ID, $courseID, $termID);
-                mysqli_stmt_execute($stmt);
-                header("Location: ../index.php?result=coursescreated");
-            }
         }
     }
 } else {
