@@ -25,7 +25,7 @@ if (isset($_SESSION['student_id'])) {
 
 
   <div class="StudentLogin">
-    <h1>Student Signup</h1>
+    <h1>Student Login</h1>
     <form action="includes/student_login.inc.php" method="post" name="studentLogin">
 
       <div class="inputs">

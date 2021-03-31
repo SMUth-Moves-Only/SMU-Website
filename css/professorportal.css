@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
   }
-  
+
   .width50{
     margin-left: 25%;
     margin-right: 25%;
@@ -14,17 +14,27 @@
     padding: 10px;
     text-align: center;
   }
-  
+
   /* Clear floats after the columns */
   .row:after {
     content: "";
     display: table;
     clear: both;
   }
-  
+
   /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {
     .column {
       width: 100%;
     }
+  }
+
+  button {
+    background: dfb677;
+    padding: 10px 50px;
+    cursor: pointer;
+    color: 062069;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 100%
   }
