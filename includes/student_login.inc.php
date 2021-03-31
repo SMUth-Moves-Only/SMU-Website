@@ -14,7 +14,7 @@ if (isset($_POST['login-submit'])) {
 		header("Location: ../studentlogin.php?error=emptyfields");
 		exit();
 	} else {
-		//check database
+		//get user information from inputted email address
 		$sql = "SELECT * FROM student WHERE email_address=?;";
 		$stmt = mysqli_stmt_init($conn);
 
@@ -31,9 +31,8 @@ if (isset($_POST['login-submit'])) {
 			//checks if result was recieved
 			//stores in array
 			if ($row = mysqli_fetch_assoc($result)) {
-				//check password with reverse hash
-				//first is password user tried to use and second is password from database
-				//true or false statement
+				//implement reverse hash
+				//check password
 				if ($password == $row['student_password']) {
 					$pwdCheck = true;
 				} else {
@@ -42,17 +41,13 @@ if (isset($_POST['login-submit'])) {
 
 				if ($pwdCheck == true) {
 
-
+					//destroy old session if already started
 					//have session started to end it
 					session_start();
-
 					//takes all session variables and deletes all values
 					session_unset();
-
 					//destroys the session
 					session_destroy();
-
-
 					//start a session for global variable
 					session_start();
 

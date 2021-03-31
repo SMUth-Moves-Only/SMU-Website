@@ -54,8 +54,10 @@ if (isset($_POST['contact-submit'])) {
     $subjectText = $_POST['subjectText'];
     $messageText = $_POST['messageText'];
 
+    //send email to administrators
     sendEmail($nameUsers, $emailUsers, $subjectText, $messageText);
 
+    //insert contact into database
     $sql = "INSERT INTO contact (dayTime, nameUser, emailUser, subjectText, messageText) VALUES (NOW(), ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
 
