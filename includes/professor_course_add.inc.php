@@ -14,7 +14,7 @@ if (isset($_POST['course-import'])) {
 
     // Check if file already exists
     if (file_exists($target_file)) {
-
+        header("Location: ../professorportal.php?error=fileservererror");
         $uploadOk = 0;
     }
 
@@ -26,11 +26,10 @@ if (isset($_POST['course-import'])) {
 
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-
+        header("Location: ../professorportal.php?error=servererror");
         // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-
 
             $csv = array_map('str_getcsv', file('../csv/' . $fileName));
             $courseID = "";
@@ -44,7 +43,7 @@ if (isset($_POST['course-import'])) {
                 $stmt = mysqli_stmt_init($conn);
 
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    header("Location: ../index.php?error=sqlerror");
+                    header("Location: ../professorportal.php?error=sqlerror");
                     exit();
                 } else {
                     mysqli_stmt_bind_param($stmt, "s", $course[0]);
@@ -57,8 +56,7 @@ if (isset($_POST['course-import'])) {
                         $courseID = $row['id'];
                         if ($courseID != "") {
                             $imported[0] = 1;
-                        }
-                        else{
+                        } else {
                             $imported[0] = 0;
                         }
                     }
@@ -67,7 +65,7 @@ if (isset($_POST['course-import'])) {
 
 
                     if (!mysqli_stmt_prepare($stmt, $sql)) {
-                        header("Location: ../index.php?error=sqlerror");
+                        header("Location: ../professorportal.php?error=sqlerror");
                         exit();
                     } else {
                         mysqli_stmt_bind_param($stmt, "s", $course[1]);
@@ -80,13 +78,12 @@ if (isset($_POST['course-import'])) {
                             $termID = $row['id'];
                             if ($termID != "") {
                                 $imported[1] = 1;
-                            }
-                            else{
+                            } else {
                                 $imported[1] = 0;
                             }
                         }
 
-                        if($imported[0] == 1 && $imported[1] == 1){
+                        if ($imported[0] == 1 && $imported[1] == 1) {
                             $total++;
                         }
                         echo $total;
@@ -108,7 +105,7 @@ if (isset($_POST['course-import'])) {
                     }
                 }
             }
-            header("Location: ../index.php?result=".$total."coursescreated");
+            header("Location: ../index.php?result=" . $total . "coursescreated");
         } else {
             echo "Sorry, there was an error uploading your file.";
         }

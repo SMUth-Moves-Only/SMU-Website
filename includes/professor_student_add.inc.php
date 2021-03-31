@@ -14,19 +14,19 @@ if (isset($_POST['student-import'])) {
 
     // Check if file already exists
     if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
+        header("Location: ../professorportal.php?error=fileservererror");
         $uploadOk = 0;
     }
 
     // Allow certain file formats
     if ($imageFileType != "csv") {
-        echo "Sorry, only CSV files are allowed.";
+        header("Location: ../professorportal.php?error=notcsv");
         $uploadOk = 0;
     }
 
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
+        header("Location: ../professorportal.php?error=servererror");
         // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -40,7 +40,7 @@ if (isset($_POST['student-import'])) {
                 $stmt = mysqli_stmt_init($conn);
 
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    header("Location: ../index.php?error=sqlerror");
+                    header("Location: ../professorportal.php?error=sqlerror");
                     exit();
                 } else {
                     mysqli_stmt_bind_param($stmt, "ss", $student[0], $student[1]);
@@ -63,12 +63,11 @@ if (isset($_POST['student-import'])) {
 
 
                     if (!mysqli_stmt_prepare($stmt, $sql)) {
-                        header("Location: ../index.php?error=sqlerror");
+                        header("Location: ../professorportal.php?error=sqlerror");
                         exit();
                     } else {
                         mysqli_stmt_bind_param($stmt, "ii", $studentID, $professorCourseID);
                         mysqli_stmt_execute($stmt);
-                        echo "Students added!";
                     }
                 }
             }
