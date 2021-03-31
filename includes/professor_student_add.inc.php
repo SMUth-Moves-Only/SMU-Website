@@ -53,26 +53,26 @@ if (isset($_POST['student-import'])) {
                         $studentID = $row['id'];
                     }
 
-                        $professorCourseID = $_POST['CourseSelect'];
-                        var_dump($_POST);
-                        $sql = "INSERT into student_course (student_id, prof_course_id) VALUES (?,?)";
-                        $result = mysqli_stmt_get_result($stmt);
+                    $professorCourseID = $_POST['CourseSelect'];
+                    var_dump($_POST);
+                    $sql = "INSERT into student_course (student_id, prof_course_id) VALUES (?,?)";
+                    $result = mysqli_stmt_get_result($stmt);
 
-                        //checks if result was recieved
-                        //stores in array
+                    //checks if result was recieved
+                    //stores in array
 
 
-                        if (!mysqli_stmt_prepare($stmt, $sql)) {
-                            header("Location: ../index.php?error=sqlerror");
-                            exit();
-                        } else {
-                            mysqli_stmt_bind_param($stmt, "ii", $studentID, $professorCourseID);
-                            mysqli_stmt_execute($stmt);
-                            echo "Students added!";
-                            //header("Location: ../professorportal.php?result=studentscreated");
-                        }
+                    if (!mysqli_stmt_prepare($stmt, $sql)) {
+                        header("Location: ../index.php?error=sqlerror");
+                        exit();
+                    } else {
+                        mysqli_stmt_bind_param($stmt, "ii", $studentID, $professorCourseID);
+                        mysqli_stmt_execute($stmt);
+                        echo "Students added!";
                     }
                 }
+            }
+            header("Location: ../professorportal.php?result=studentscreated");
         } else {
             echo "Sorry, there was an error uploading your file.";
         }

@@ -6,7 +6,7 @@ require 'dbh.inc.php';
 $studentIndex = $_SESSION["peer_eval_student_id"][array_search($_POST["StudentSelect"], $_SESSION["student_names"])];
 $addComments = $_POST["AddComm"];
 $evalNum = 1;
-$loggedInStudent = $_SESSION["id"];
+$loggedInStudent = $_SESSION["student_id"];
 
 //ADD PEER EVAL ID
 $sql = "INSERT INTO student_criterion_score (criterion_id, score, student_id, student_receiving_id, peerEval_id) VALUES (?,?,?,?,?)";
