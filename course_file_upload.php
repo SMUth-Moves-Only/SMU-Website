@@ -7,14 +7,16 @@ include "header.php";
 <!DOCTYPE html>
 <html>
 
+    <link rel="stylesheet" href="css/course_file_upload.css">
+
 <body>
 
-    <form action="includes/professor_course_add.inc.php" method="post" enctype="multipart/form-data">
+<!--    <form action="includes/professor_course_add.inc.php" method="post" enctype="multipart/form-data">
         Select image to upload:
         <input type="file" name="fileToUpload" id="fileToUpload">
         <input type="submit" value="Import Course" name="course-import">
     </form>
-
+-->
 
     <form action="includes/professor_student_add.inc.php" method="post" enctype="multipart/form-data">
         <label>Course Title </label>
