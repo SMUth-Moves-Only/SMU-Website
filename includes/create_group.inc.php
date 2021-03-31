@@ -16,12 +16,12 @@ if (isset($_POST['create-group'])) {
         $stmt = mysqli_stmt_init($conn);
 
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location: ../index.php?error=sqlerror");
+            header("Location: ../professorportal.php?error=sqlerror");
             exit();
         } else {
             mysqli_stmt_bind_param($stmt, "si", $teamName, $courseID);
             mysqli_stmt_execute($stmt);
-            header("Location: ../professorportal.php?result=success");
+            header("Location: ../professorportal.php?result=groupcreated");
         }
     }
 }

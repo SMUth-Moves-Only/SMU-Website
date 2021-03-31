@@ -6,6 +6,18 @@ if (!isset($_SESSION['professor_id'])) {
 }
 ?>
 
+<?php
+
+if($_SERVER['QUERY_STRING'] == "result=success"){
+    echo '<script>window.alert("Success")</script>';
+}
+else if($_SERVER['QUERY_STRING'] == "error=notcsv"){
+    echo '<script>window.alert("Not a CSV")</script>';
+}
+
+?>
+
+
 
 <!--Dropdown menus for course title and course ID. Populate both dropdown menus from student's available courses-->
 <!DOCTYPE html>
