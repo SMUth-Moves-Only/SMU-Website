@@ -74,9 +74,9 @@ include "header.php";
     </form>
   </div>
 
-<!--
+
         <input type="submit" value="Import Student" name="student-import">
--->
+
 
 </body>
 </html>
