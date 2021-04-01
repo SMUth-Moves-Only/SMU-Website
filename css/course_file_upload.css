@@ -25,6 +25,18 @@ textarea{
   transform: translate(-50%);
 }
 
+.importcourse {
+
+  text-align: center;
+  background: #06206e;
+  padding: 15px 30px;
+  cursor: pointer;
+  color: white;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 90%;
+}
+
 button{
   text-align: center;
   background: #06206e;

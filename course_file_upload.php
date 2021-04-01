@@ -38,15 +38,11 @@ include "header.php";
   </div>
 <br>
 
-<!--    <form action="includes/professor_course_add.inc.php" method="post" enctype="multipart/form-data">
-        Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" value="Import Course" name="course-import">
-    </form>
--->
 
-  <!--  <form action="includes/professor_student_add.inc.php" method="post" enctype="multipart/form-data">
-        <label>Course Title </label>
+
+
+  <form action="includes/professor_student_add.inc.php" method="post" enctype="multipart/form-data">
+
         <select name="CourseSelect">
             <?php
             session_start();
@@ -60,16 +56,23 @@ include "header.php";
             ?>
         </select><br>
         </form>
-  -->
 
-  <!--select file button-->
-      <div class="choosefile">
-        <label>Select Student File</label>
-        <input type="file" name="fileToUpload" id="fileToUpload"> <br><br>
+
+  <div class="choosefile">
+
+    <!--select file button-->
+          <label>Select Student File:</label>
+          <input type="file" name="fileToUpload" id="fileToUpload"> <br><br>
+
+    <form action="includes/professor_course_add.inc.php" method="post" enctype="multipart/form-data">
+        Select Image to Upload:
+        <input type="file" name="fileToUpload" id="fileToUpload">
+
+      <div class="importcourse">
+        <input type="submit" value="Import Course" name="course-import"> <br><br>
       </div>
-
-    <!--import studnets button-->
-      <button type="submit" value="Import Student" name="Import Students">Import Students</button>
+    </form>
+  </div>
 
 <!--
         <input type="submit" value="Import Student" name="student-import">
