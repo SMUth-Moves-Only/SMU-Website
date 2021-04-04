@@ -38,9 +38,7 @@ include "header.php";
   </div>
 <br>
 
-
-
-
+<!--
   <form action="includes/professor_student_add.inc.php" method="post" enctype="multipart/form-data">
 
         <select name="CourseSelect">
@@ -56,29 +54,25 @@ include "header.php";
             ?>
         </select><br>
         </form>
-
+-->
 
   <div class="choosefile">
 
-    <!--select file button-->
-          <label>Select Student File:</label>
-          <input type="file" name="fileToUpload" id="fileToUpload"> <br><br>
+    <!--select student-->
+    <label>Select Student File:</label>
+      <input type="file" name="fileToUpload" id="fileToUpload"><br>
+      <input type="submit" value="Import Student" name="student-import"><br>
 
+    <!--select image-->
     <form action="includes/professor_course_add.inc.php" method="post" enctype="multipart/form-data">
-        Select Image to Upload:
-        <input type="file" name="fileToUpload" id="fileToUpload">
+      Select Image to Upload:
+      <input type="file" name="fileToUpload" id="fileToUpload"><br>
+      <input type="submit" value="Import Course" name="course-import">
 
-      <div class="importcourse">
-        <input type="submit" value="Import Course" name="course-import"> <br><br>
-      </div>
     </form>
   </div>
 
-
-        <input type="submit" value="Import Student" name="student-import">
-
-
-</body>
+  </body>
 </html>
 <?php
 include "footer.php";

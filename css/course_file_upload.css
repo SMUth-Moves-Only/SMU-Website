@@ -11,6 +11,11 @@
   border-width: 1px;
 }
 
+.choosefile{
+  margin-left: 60%;
+  transform: translate(-50%);
+}
+
 h1{
   text-align: center;
 }
@@ -20,30 +25,12 @@ textarea{
   transform: translate(-50%);
 }
 
-.choosefile{
-  margin-left: 60%;
-  transform: translate(-50%);
-}
-
-.importcourse {
+input {
   text-align: center;
   background: #06206e;
-  padding: 15px 30px;
   cursor: pointer;
   color: white;
   margin: 10px;
-  border-radius: 5px;
-  font-size: 90%;
-}
-
-button{
-  text-align: center;
-  background: #06206e;
-  padding: 15px 30px;
-  cursor: pointer;
-  color: white;
-  margin: 10px;
-  border-radius: 5px;
   font-size: 90%
 }
 
