@@ -7,29 +7,7 @@ include "header.php";
     <link rel="stylesheet" href="css/course_file_upload.css">
 <body>
 
-  <h1>Import Students</h1>
-  <textarea name="textbox" rows="7" cols="30"></textarea> <br>
-<br>
-
-<!--select course drop down-->
-<form action="includes/professor_student_add.inc.php" method="post" enctype="multipart/form-data">
-    <select name="CourseSelect">
-        <?php
-        session_start();
-        if (isset($_SESSION['course_info'])) {
-            for ($i = 0; $i < count($_SESSION['course_info']); $i++) {
-                echo '<option value="' . $_SESSION['course_info'][$i][0] . '">' . $_SESSION['course_info'][$i][2] . '</option>';
-            }
-        } else {
-            echo '<option value="" disabled selected hidden>No Courses Available</option>';
-        }
-        ?>
-    </select><br>
-</form>
-
-<br>
-
-<!--file directions-->
+<!--file directions
   <div class="fileinfo">
     <p>Student file should be in .csv format.</p>
     <p>File should have rows in order: id, first_name, <br>
@@ -37,6 +15,7 @@ include "header.php";
     student_password</p>
   </div>
 <br>
+-->
 
 <!--
   <form action="includes/professor_student_add.inc.php" method="post" enctype="multipart/form-data">
@@ -56,21 +35,64 @@ include "header.php";
         </form>
 -->
 
-  <div class="choosefile">
+<div class="row">
+  <!--select student-->
+  <div class="column">
+    <h1>Import Students</h1>
+      <div class="choosefile">
+        <!--drop down list-->
+        <form action="includes/professor_student_add.inc.php" method="post" enctype="multipart/form-data">
+          <select name="CourseSelect">
+            <?php
+             session_start();
+              if (isset($_SESSION['course_info'])) {
+                for ($i = 0; $i < count($_SESSION['course_info']); $i++) {
+                    echo '<option value="' . $_SESSION['course_info'][$i][0] . '">' . $_SESSION['course_info'][$i][2] . '</option>';
+                    }
+                } else {
+                    echo '<option value="" disabled selected hidden>No Courses Available</option>';
+                }
+            ?>
+         </select>
+        </form>
 
-    <!--select student-->
-    <label>Select Student File:</label>
-      <input type="file" name="fileToUpload" id="fileToUpload"><br>
-      <input type="submit" value="Import Student" name="student-import"><br>
-
-    <!--select image-->
-    <form action="includes/professor_course_add.inc.php" method="post" enctype="multipart/form-data">
-      Select Image to Upload:
-      <input type="file" name="fileToUpload" id="fileToUpload"><br>
-      <input type="submit" value="Import Course" name="course-import">
-
-    </form>
+        <label>Select Student File:</label>
+        <input type="file" name="fileToUpload" id="fileToUpload"><br>
+        <label>Enter Student Name:<input type="text" name="studentname"></label><br>
+        <input type="submit" value="Import Student" name="student-import"><br>
+      </div>
   </div>
+
+  <!--select image-->
+  <div class="column">
+    <h1>Import Courses</h1>
+      <div class="choosefile">
+        <!--drop down list-->
+        <form action="includes/professor_student_add.inc.php" method="post" enctype="multipart/form-data">
+          <select name="CourseSelect">
+            <?php
+              session_start();
+                if (isset($_SESSION['course_info'])) {
+                  for ($i = 0; $i < count($_SESSION['course_info']); $i++) {
+                      echo '<option value="' . $_SESSION['course_info'][$i][0] . '">' . $_SESSION['course_info'][$i][2] . '</option>';
+                      }
+                  } else {
+                      echo '<option value="" disabled selected hidden>No Courses Available</option>';
+                  }
+            ?>
+         </select>
+        </form>
+
+        <form action="includes/professor_course_add.inc.php" method="post" enctype="multipart/form-data">
+          Select Image to Upload:
+          <input type="file" name="fileToUpload" id="fileToUpload"><br>
+          <label>Enter Course Name:<input type="text" name="coursename"></label><br>
+          <label>Enter Term:<input type="text" name="termnum"></label><br>
+          <input type="submit" value="Import Course" name="course-import">
+        </form>
+      </div>
+    </div>
+</div>
 
   </body>
 </html>
