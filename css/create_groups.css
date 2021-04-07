@@ -12,6 +12,14 @@ button {
   font-size: 120%
 }
 
+input {
+  width: 25%;
+}
+
+label {
+    
+}
+
 .cgroup {
   background-color: #d7d7d7;
   width: 30%;
