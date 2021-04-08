@@ -1,5 +1,5 @@
 <?php
-include "header.php";
+include "header2.php";
 ?>
 
 <!--Login buttons for instructor, student, or administrator-->
@@ -17,7 +17,7 @@ include "header.php";
       <h1>Log In</h1> <br>
         <div class="buttons">
           <button onclick="window.location='professor_login.php';">INSTRUCTOR</button> <br>
-          <button onclick="window.location='studentlogin.php';">STUDENT</button> <br>
+          <button onclick="window.location='student_login.php';">STUDENT</button> <br>
           <button onclick="window.location='admin_login.php';">ADMINISTRATOR</button>
         </div>
     </div>

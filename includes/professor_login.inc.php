@@ -81,7 +81,7 @@ if (isset($_POST['login-submit'])) {
 							$i++;
 						}
 
-						header("Location: ../professorportal.php?login=success");
+						header("Location: ../professor_portal.php?login=success");
 					}
 				} else {
 					header("Location: ../professor_login.php?error=wrongpwd");

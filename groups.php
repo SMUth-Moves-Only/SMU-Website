@@ -14,7 +14,7 @@
 <!--Create Groups-->
 <div class="cgroup">
   <h2>Create Groups</h2>
-  <form action="includes/create_group.inc.php" method="post">
+  <form action="includes/groups.inc.php" method="post">
     <label>Course Name:</label>
     <select name="CourseSelect">
       <?php
@@ -36,7 +36,7 @@
 
 <div class="cgroup">
   <h2></h2>
-  <form action="includes/create_group.inc.php" method="post">
+  <form action="includes/groups.inc.php" method="post">
     <label>Course Name:</label>
     <select name="CourseSelect">
       <?php

@@ -45,7 +45,7 @@ else if($_SERVER['QUERY_STRING'] == "error=notcsv"){
         <div class="width50">
             <div class="row">
                 <div class="column">
-                    <button onclick="window.location='course_file_upload.php';">Import Students <br> and Courses</button>
+                    <button onclick="window.location='course_student_add.php';">Import Students <br> and Courses</button>
                     <!--FILE TO UPLOAD COURSES. MAY NEED TO ALSO INCLUDE CODE FROM STUDENT_FILE_UPLOAD-->
                 </div>
                 <div class="column">
@@ -54,7 +54,7 @@ else if($_SERVER['QUERY_STRING'] == "error=notcsv"){
             </div>
             <div class="row">
                 <div class="column">
-                    <button onclick="window.location='create_groups.php';">Create Student <br> Groups</button>
+                    <button onclick="window.location='groups.php';">Create Student <br> Groups</button>
                 </div>
                 <div class="column">
                     <button>View Student <br> Evaluation</button>

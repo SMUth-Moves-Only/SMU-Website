@@ -1,7 +1,7 @@
 <?php
 include "header.php";
 if (isset($_SESSION['professor_id'])) {
-    header("Location: ./professorportal.php");
+    header("Location: ./professor_portal.php");
     exit();
   }
 ?>

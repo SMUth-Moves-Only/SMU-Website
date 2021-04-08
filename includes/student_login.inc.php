@@ -11,7 +11,7 @@ if (isset($_POST['login-submit'])) {
 
 	//check if anything was left empty
 	if (empty($mailuid) || empty($password)) {
-		header("Location: ../studentlogin.php?error=emptyfields");
+		header("Location: ../student_login.php?error=emptyfields");
 		exit();
 	} else {
 		//get user information from inputted email address
@@ -58,9 +58,9 @@ if (isset($_POST['login-submit'])) {
 
 
 					//take user back with success message
-					header("Location: ../studentportal.php?login=success");
+					header("Location: ../student_portal.php?login=success");
 				} else {
-					header("Location: ../studentlogin.php?error=wrongpwd");
+					header("Location: ../student_login.php?error=wrongpwd");
 					exit();
 				}
 			}
@@ -68,7 +68,7 @@ if (isset($_POST['login-submit'])) {
 
 			//if data not recieved
 			else {
-				header("Location: ../studentlogin.php?error=nouser");
+				header("Location: ../student_login.php?error=nouser");
 				exit();
 			}
 		}

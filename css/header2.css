@@ -1,0 +1,253 @@
+
+
+/* Navbar container */
+
+.navbar {
+    overflow: hidden;
+    float: left;
+    font-family: Arial;
+    width: 100%;
+    background-color: transparent;
+    z-index: 1000;
+    height: 100px;
+}
+
+.navbar img {
+    height: 120px;
+    width: 250px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -125px;
+    z-index: 1000;
+}
+
+/* Links inside the navbar */
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+/* The dropdown container */
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/* Dropdown button */
+
+.dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    /* Important for vertical align on mobile phones */
+    margin: 0;
+    /* Important for vertical align on mobile phones */
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Add a red background color to navbar links on hover */
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: white;
+    /* change this for animations and stuff */
+}
+
+/* Dropdown content (hidden by default) */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* Links inside the dropdown */
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 20px 30px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.signup-in {
+    float: none;
+    color: black;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    z-index: 1000;
+}
+
+.signup-in a {
+    padding: 0px 0px;
+    z-index: 1000;
+}
+
+.signup-in input {
+    font-family: inherit;
+    margin-left: 15px;
+    margin-top: 10px;
+    z-index: 1000;
+}
+
+/* Add a grey background color to dropdown links on hover */
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.menu-divider {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    margin: 10px 0;
+    z-index: 1000;
+}
+
+.menu-bar1, .menu-bar2, .menu-bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+    transition: 0.4s;
+    /*Makes it so the divs are clicked through*/
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+
+.show {
+    display: block;
+}
+
+.menuIconChange .menu-bar1 {
+    -webkit-transform: translateY(11px) rotate(90deg);
+    transform: translateY(11px) rotate(90deg);
+}
+
+.menuIconChange .menu-bar2 {
+    -webkit-transform: translateX(13px) translateY(6px) rotate(-45deg) skew(45deg, 0deg);
+    transform: translateX(13px) translateY(6px) rotate(-45deg) skew(45deg, 0deg);
+}
+
+.menuIconChange .menu-bar3 {
+    -webkit-transform: translateX(-13px) translateY(-5px) rotate(45deg) skew(-45deg, 0deg);
+    transform: translateX(-13px) translateY(-5px) rotate(45deg) skew(-45deg, 0deg);
+}
+
+#registerLink {
+    text-align: left;
+    font-size: 90%;
+    text-decoration: underline;
+    color: blue;
+    margin-top: 30px;
+    margin-left: 15px;
+}
+
+#forgotPasswordLink {
+    padding: 1px, 1px;
+    text-align: left;
+    font-size: 90%;
+    text-decoration: underline;
+    color: blue;
+    margin-top: 5px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+#loginButton {
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 0 0 3px black;
+    border: 1px solid white;
+    font-weight: bold;
+    font-family: inherit;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+#navbarWelcomeText {
+    font-family: inherit;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+#logoutButton {
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 0 0 3px black;
+    border: 1px solid white;
+    font-weight: bold;
+    font-family: inherit;
+    margin-top: 5px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+@keyframes enlargeNavLinkOnHover {
+    from {
+        font-size: 15px;
+    }
+    to {
+        font-size: 140%
+    }
+}
+
+@-webkit-keyframes enlargeNavLinkOnHover {
+    from {
+        font-size: 15px;
+    }
+    to {
+        font-size: 140%
+    }
+}
+
+@-moz-keyframes enlargeNavLinkOnHover {
+    from {
+        font-size: 15px;
+    }
+    to {
+        font-size: 140%
+    }
+}
+
+@-o-keyframes enlargeNavLinkOnHover {
+    from {
+        font-size: 15px;
+    }
+    to {
+        font-size: 140%
+    }
+}
+
+@-ms-keyframes enlargeNavLinkOnHover {
+    from {
+        font-size: 15px;
+    }
+    to {
+        font-size: 140%
+    }
+}
+
+/*END HEADER CSS */
