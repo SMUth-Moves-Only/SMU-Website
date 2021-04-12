@@ -4,16 +4,15 @@ if (isset($_POST['create-group'])) {
     //Add database handler
     require "dbh.inc.php";
     //Check if tableName is empty
-    if ($_POST['teamName'] == "") {
-        header("Location: ../create_groups.php?error=invalidteamname");
+    $teamName = $_POST['teamName'];
+    if ($teamName == "") {
+        header("Location: ../professor_portal.php?error=invalidteamname");
     }
     //check if a course is selected
     if (!isset($_POST['CourseSelect'])) {
-        header("Location: ../create_groups.php?error=invalidcourse");
-    } 
-    else {
+        header("Location: ../professor_portal.php?error=invalidcourse");
+    } else {
         //store POST variables as local variables
-        $teamName = $_POST['teamName'];
         $courseID = $_POST['CourseSelect'];
         //insert into student group table
         $sql = "INSERT INTO student_group (team_name, prof_course_id) VALUES (?,?)";

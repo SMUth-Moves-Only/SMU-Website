@@ -172,7 +172,7 @@ if (isset($_POST['course-import'])) {
                         }
                     }
                 }
-                //header("Location: ../professor_portal.php?result=coursescreated");
+                header("Location: ../professor_portal.php?result=coursescreated");
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
@@ -189,8 +189,6 @@ if (isset($_POST['course-import'])) {
         $lName = $_POST['studentlname'];
         $studentID = "";
 
-        echo $fName;
-        echo $lName;
         //convert course number to id in database
         $sql = "SELECT id FROM student WHERE first_name = ? AND last_name = ?";
         $stmt = mysqli_stmt_init($conn);
@@ -205,7 +203,6 @@ if (isset($_POST['course-import'])) {
 
             if ($row = mysqli_fetch_assoc($result)) {
                 $studentID = $row['id'];
-                echo $row['id'];
             }
 
             if($studentID != ""){
