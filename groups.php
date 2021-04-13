@@ -30,7 +30,7 @@ if (!isset($_SESSION['professor_id'])) {
 
     <!--team name & submit button-->
     <input type="text" id="teamName" name="teamName" placeholder="Group Name"><br>
-    <button type="submit" name="create-group"> Submit </button>
+    <button type="submit" name="createg"> Submit </button>
   </form>
 </div>
 
