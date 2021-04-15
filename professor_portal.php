@@ -20,20 +20,18 @@ if (!isset($_SESSION['professor_id'])) {
 
     <link rel="stylesheet" href="css/professorportal.css">
 
-
 </head>
 
+<!--ERROR Messages-->
 <?php
 if ($_SERVER['QUERY_STRING'] == "result=success") {
     echo '<div class="alert success" name="success">
     <span class="closebtn">&times;</span>
     <strong>Success!</strong> Indicates a successful or positive action.
   </div>';
-<<<<<<< HEAD
 }
 else if ($_SERVER['QUERY_STRING'] == "error=notcsv") {
     echo '';
-=======
 } else if ($_SERVER['QUERY_STRING'] == "error=notcsv") {
     echo '<div class="alert success">
     <span class="closebtn">&times;</span>
@@ -44,7 +42,6 @@ else if ($_SERVER['QUERY_STRING'] == "error=notcsv") {
     <span class="closebtn">&times;</span>
     <strong>Error!</strong> There was an error with the database!
   </div>';
->>>>>>> 9bd00cbd352bec74e894109a9528b066c9a73c5a
 }
 ?>
 

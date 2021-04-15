@@ -15,14 +15,6 @@ include "header.php";
         <!--drop down list-->
         <form action="includes/course_student_add.inc.php" method="post" enctype="multipart/form-data">
 
-<?php if (condition): ?>
-          <div class="alert">
-            <span class="closebtn">&times;</span>
-            <strong>ERROR:</strong> Fill in all inputs.
-          </div>
-<?php endif; ?>
-
-<br>
           <select name="CourseSelect">
             <?php
             session_start();
@@ -61,6 +53,41 @@ include "header.php";
       </div>
     </div>
   </div>
+
+  <?php
+  if ($_SERVER['QUERY_STRING'] == "result=success" /*ERROR MESSAGE*/) {
+      echo '<div class="alert success" name="success">
+      <span class="closebtn">&times;</span>
+      <strong>Success:</strong> File uploaded.
+    </div>';
+  } else if ($_SERVER['QUERY_STRING'] == "error=notcsv" /*ERROR MESSAGE*/) {
+      echo '<div class="alert success">
+      <span class="closebtn">&times;</span>
+      <strong>ERROR:</strong> File must be a CSV file.
+    </div>';
+  }
+  } else if ($_SERVER['QUERY_STRING'] == "error=notcsv" /*ERROR MESSAGE*/) {
+      echo '<div class="alert success">
+      <span class="closebtn">&times;</span>
+      <strong>ERROR:</strong> Input all information.
+    </div>';
+  }
+  ?>
+
+
+<!--JavaScript-->
+  <script>
+    var close = document.getElementsByClassName("closebtn");
+    var i;
+
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function(){
+        var div = this.parentElement;
+        div.style.opacity = "0";
+        setTimeout(function(){ div.style.display = "none"; }, 600);
+      }
+    }
+  </script>
 
 </body>
 </html>
