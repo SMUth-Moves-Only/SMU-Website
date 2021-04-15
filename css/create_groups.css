@@ -17,7 +17,7 @@ input {
 }
 
 label {
-    
+
 }
 
 .cgroup {
@@ -31,4 +31,13 @@ label {
   border: black;
   border-style: solid;
   border-width: 1px;
+}
+
+@media screen and (max-width: 1200px) {
+  .cgroup { /********************************MOBILE STUFF!!!!!!!!!!!!!!!!!!!!!******************************************/
+    width: 70%;
+  }
+  h1 {
+    text-align: center;
+  }
 }

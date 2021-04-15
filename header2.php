@@ -13,7 +13,6 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SMU Peer Evaluation</title>
     <link rel="stylesheet" href="css/header2.css">
-
 </head>
 
 <body>

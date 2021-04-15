@@ -50,45 +50,10 @@ if (!isset($_SESSION['professor_id'])) {
       ?>
     </select><br>
 
-    <label>Groups:</label>
-    <select name="groupselect">
-    </select>
-    <br>
-    <label>Students In Group</label>
-    <select name="stuInGroup">
-    </select>
-    <br>
     <button type="submit" name="create-group"> Submit </button>
 
   </form>
 </div>
-<select>
-  <option id="txtHint"></option>
-</select>
-
-
-
-
-
-<script>
-  function showHint(str) {
-    if (str.length == 0) {
-      document.getElementById("txtHint").innerHTML = "";
-      return;
-    } else {
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("txtHint").innerHTML = this.responseText;
-        }
-      }
-      xmlhttp.open("GET", "gethint.php?q=" + str, true);
-      xmlhttp.send();
-    }
-  }
-</script>
-
-
 
 <?php
 include "footer.php";
