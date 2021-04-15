@@ -27,11 +27,12 @@ if (!isset($_SESSION['professor_id'])) {
 
 if ($_SERVER['QUERY_STRING'] == "result=success") {
     echo '<div class="alert success" name="success">
-    <span class="closebtn">&times;</span>  
+    <span class="closebtn">&times;</span>
     <strong>Success!</strong> Indicates a successful or positive action.
   </div>';
-} else if ($_SERVER['QUERY_STRING'] == "error=notcsv") {
-    echo '<script>window.alert("Not a CSV")</script>';
+}
+else if ($_SERVER['QUERY_STRING'] == "error=notcsv") {
+    echo '';
 }
 
 ?>
