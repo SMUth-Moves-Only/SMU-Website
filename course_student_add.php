@@ -21,6 +21,7 @@ include "header.php";
             <strong>ERROR:</strong> Fill in all inputs.
           </div>
 <?php endif; ?>
+
 <br>
           <select name="CourseSelect">
             <?php
