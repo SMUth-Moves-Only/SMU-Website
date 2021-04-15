@@ -1,10 +1,11 @@
 On Professor Portal:
+
 error=fileservererror - File with the same name on server
 error=notcsv - not a csv file
 error=servererror - other errors
 error=sqlerror - error with the database
 result=studentscreated - students added successfully
-result=[number]coursescreated - courses are created from csv
+result=courseadded - courses are created from csv
 result=groupcreated - group created
 
 On Index Page

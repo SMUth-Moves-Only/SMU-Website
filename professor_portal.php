@@ -24,16 +24,22 @@ if (!isset($_SESSION['professor_id'])) {
 </head>
 
 <?php
-
 if ($_SERVER['QUERY_STRING'] == "result=success") {
     echo '<div class="alert success" name="success">
     <span class="closebtn">&times;</span>  
     <strong>Success!</strong> Indicates a successful or positive action.
   </div>';
 } else if ($_SERVER['QUERY_STRING'] == "error=notcsv") {
-    echo '<script>window.alert("Not a CSV")</script>';
+    echo '<div class="alert success">
+    <span class="closebtn">&times;</span>  
+    <strong>Success!</strong> Indicates a successful or positive action.
+  </div>';
+} else if ($_SERVER['QUERY_STRING'] == "error=sqlerror") {
+    echo '<div class="alert">
+    <span class="closebtn">&times;</span>  
+    <strong>Error!</strong> There was an error with the database!
+  </div>';
 }
-
 ?>
 
 <body>
