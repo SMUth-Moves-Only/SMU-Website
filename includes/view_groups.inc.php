@@ -1,14 +1,14 @@
 <?php
-//Assign student to group
+
+//When the professor wants to schedule a peer evaluation, he has to know what groups he has in the course he selected
+
 session_start();
 
 require 'dbh.inc.php';
 
-$groupID = $_POST['GroupSelect'];
-$studentID = $_POST['StudentSelect'];
+$selectedCourse;
 
-
-$sql = "INSERT INTO group_assign (group_id, student_id) VALUES (?, ?)";
+$sql = "";
 
 $stmt = mysqli_stmt_init($conn);
 
@@ -21,12 +21,11 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     exit();
 } 
 else {
-
-    mysqli_stmt_bind_param($stmt, "ii", $groupID, $studentID);
+    mysqli_stmt_bind_param($stmt, "ii", $selectedCourse);
     mysqli_stmt_execute($stmt);
     //close the sqli connection to save resources
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
-    header("Location: ../professor_portal.php?user=studentassigned");
+    header("Location: ../professor_portal.php?user=peerevalassigned");
     exit();
 }

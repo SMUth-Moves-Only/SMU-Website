@@ -6,16 +6,7 @@ if (!isset($_SESSION['professor_id'])) {
 }
 ?>
 
-<?php
 
-if($_SERVER['QUERY_STRING'] == "result=success"){
-    echo '<script>window.alert("Success")</script>';
-}
-else if($_SERVER['QUERY_STRING'] == "error=notcsv"){
-    echo '<script>window.alert("Not a CSV")</script>';
-}
-
-?>
 
 
 
@@ -31,6 +22,19 @@ else if($_SERVER['QUERY_STRING'] == "error=notcsv"){
 
 
 </head>
+
+<?php
+
+if ($_SERVER['QUERY_STRING'] == "result=success") {
+    echo '<div class="alert success" name="success">
+    <span class="closebtn">&times;</span>  
+    <strong>Success!</strong> Indicates a successful or positive action.
+  </div>';
+} else if ($_SERVER['QUERY_STRING'] == "error=notcsv") {
+    echo '<script>window.alert("Not a CSV")</script>';
+}
+
+?>
 
 <body>
 
@@ -65,5 +69,21 @@ else if($_SERVER['QUERY_STRING'] == "error=notcsv"){
 
 
 </body>
+
+<script>
+    var close = document.getElementsByClassName("closebtn");
+    var i;
+
+    for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function() {
+                div.style.display = "none";
+            }, 600);
+        }
+    }
+</script>
+
 
 </html>
