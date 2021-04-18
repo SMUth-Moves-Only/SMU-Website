@@ -13,6 +13,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SMU Peer Evaluation</title>
     <link rel="stylesheet" href="css/header2.css">
+    <script src="//rum-static.pingdom.net/pa-607c462e365abb0011000231.js" async></script>
 </head>
 
 <body>

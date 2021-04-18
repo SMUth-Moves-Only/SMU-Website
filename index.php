@@ -10,6 +10,25 @@ include "header2.php";
 <head>
     <link rel="stylesheet" href="css/index.css">
     <script src="js/index.js"></script>
+
+  <script>
+    function newImg() {
+      var smupics = new Array();
+        smupics = {}
+      var smunames = new Array();
+
+
+    }
+  
+  
+  
+  
+  </script>
+
+
+
+
+
 </head>
   <body>
 

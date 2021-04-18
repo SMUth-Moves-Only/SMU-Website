@@ -49,7 +49,7 @@ else {
 	mysqli_stmt_bind_param($stmt, "iiis", $loggedInStudent, $evalNum, $studentIndex, $addComments);
 	mysqli_stmt_execute($stmt);
 
-	header("Location: ../evaluationsuccess.php?result=success");
+	header("Location: ../evaluationsuccess.php?result=evalsubmitted");
 }
 
 

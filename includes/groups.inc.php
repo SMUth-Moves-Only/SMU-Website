@@ -4,12 +4,13 @@ if (isset($_POST['create-group'])) {
     //Add database handler
     require "dbh.inc.php";
     //Check if tableName is empty
+
     $teamName = $_POST['teamName'];
     if ($teamName == "") {
         header("Location: ../professor_portal.php?error=invalidteamname");
     }
     //check if a course is selected
-    if (!isset($_POST['CourseSelect'])) {
+    else if (!isset($_POST['CourseSelect'])) {
         header("Location: ../professor_portal.php?error=invalidcourse");
     } else {
         //store POST variables as local variables
@@ -25,7 +26,8 @@ if (isset($_POST['create-group'])) {
             //bind team name and course id, and execute statement
             mysqli_stmt_bind_param($stmt, "si", $teamName, $courseID);
             mysqli_stmt_execute($stmt);
-            header("Location: ../professor_portal.php?result=groupcreated");
+            header("Location: ../groups.php?result=groupcreated");
+
         }
     }
 }
