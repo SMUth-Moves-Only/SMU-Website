@@ -27,6 +27,6 @@ else {
     //close the sqli connection to save resources
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
-    header("Location: ../professor_portal.php?user=studentassigned");
+    header("Location: ../groups.php?user=studentassigned");
     exit();
 }

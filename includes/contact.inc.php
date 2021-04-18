@@ -63,7 +63,7 @@ if (isset($_POST['contact-submit'])) {
 
     //helps keep database safe
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("Location: ../index.php?error=contactsqlerror");
+        header("Location: ../index.php?error=sqlerror");
         exit();
     } else {
         mysqli_stmt_bind_param($stmt, "ssss", $nameUsers, $emailUsers, $subjectText, $messageText);

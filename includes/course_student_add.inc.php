@@ -178,7 +178,9 @@ if (isset($_POST['course-import'])) {
             }
         }
     }
-} else if (isset($_POST['student-import'])) {
+} 
+
+else if (isset($_POST['student-import'])) {
 
 
 
