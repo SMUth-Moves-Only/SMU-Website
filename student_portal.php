@@ -39,7 +39,7 @@ if (!isset($_SESSION['student_id'])) {
     <h2 style="float: left">Course Information</h2><br><br><br><br>
 
     <!--course title-->
-    <form action="" method="post">
+    <form action="" method="post" name="welcome">
       <label>Course Title </label>
       <select id="CourseSelect">
         <?php
@@ -56,7 +56,7 @@ if (!isset($_SESSION['student_id'])) {
     </label></p>
 
     <!--course id-->
-    <form action="" method="post">
+    <form action="" method="post" name="welcome2">
       <label>Course ID </label>
       <select id="CourseID">
         <?php
