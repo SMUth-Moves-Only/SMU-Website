@@ -5,29 +5,27 @@ include "analytics.php";
 <!DOCTYPE html>
 <html>
 
-<head>
-    <link rel="stylesheet" href="css/header.css">
-    <script src="js/jQuery.js"></script>
-	<script src="//rum-static.pingdom.net/pa-607c462e365abb0011000231.js" async></script>
-</head>
+  <head>
+      <link rel="stylesheet" href="css/header.css">
+      <script src="js/jQuery.js"></script>
+  	  <script src="//rum-static.pingdom.net/pa-607c462e365abb0011000231.js" async></script>
+  </head>
 
-    <header>
-        <img class="logo" src="img/smuHeader.svg" alt="smu">
-        <img class="headerRight headerImg" src="img/threeLines.svg">
-        <?php
-        session_start();
-        if(isset($_SESSION["student_id"]) || isset($_SESSION["professor_id"])){
-        echo'<a class="headerRight headerBtn" href="includes/logout.inc.php">Logout</a>';
-        }
-        ?>
-        <a class="headerRight headerBtn" href="/SMU-Website">Home</a>
+      <header>
+          <img class="logo" src="img/smuHeader.svg" alt="smu">
 
-    </header>
+          <?php
+          session_start();
+          if(isset($_SESSION["student_id"]) || isset($_SESSION["professor_id"])){
+          echo'<a class="headerRight headerBtn" href="includes/logout.inc.php">Logout</a>';
+          }
+          ?>
+          <a class="headerRight headerBtn" href="/SMU-Website">Home</a>
+      </header>
 
 </html>
 
-
-
+<!--ERROR Messages-->
 <?php
 if ($_SERVER['QUERY_STRING'] == "error=inputerror" /*ERROR MESSAGE: information input error*/) {
     echo '<div class="alert warning" name="errorinput">

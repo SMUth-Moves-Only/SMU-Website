@@ -28,7 +28,7 @@
       width: 100%;
     }
     button {
-      width: 100%;
+      width: 90%;
     }
   }
 
@@ -40,6 +40,5 @@
     margin: 10px;
     border-radius: 5px;
     font-size: 100%;
-    width: 30%;
+    width: 50%;
   }
-
