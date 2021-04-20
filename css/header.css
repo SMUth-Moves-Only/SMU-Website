@@ -34,16 +34,13 @@ header .headerImg{
     margin-top: 1%;
 }
 
-
-
-
-
-
-
-
-
-
-
+@media screen and (max-width: 1200px) {
+  header {
+    width: 30%;
+  }
+  header .headerImg {
+    width: 20%
+  }
 
 
 .alert {

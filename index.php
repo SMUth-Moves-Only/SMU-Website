@@ -20,19 +20,19 @@ include "header2.php";
     <!-- Full-width images with number and caption text -->
     <div class="mySlides fade">
       <div class="numbertext">1 / 3</div>
-      <img src="smupic2.jpg" style="width:100%">
+      <img src="img/smupic2.jpg" style="width:100%">
       <div class="text">Caption Text</div>
     </div>
 
     <div class="mySlides fade">
       <div class="numbertext">2 / 3</div>
-      <img src="smupic3.jpg" style="width:100%">
+      <img src="img/smupic3.jpg" style="width:100%">
       <div class="text">Caption Two</div>
     </div>
 
     <div class="mySlides fade">
       <div class="numbertext">3 / 3</div>
-      <img src="smupic1.jpg" style="width:100%">
+      <img src="img/smupic1.jpg" style="width:100%">
       <div class="text">Caption Three</div>
     </div>
 
