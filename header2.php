@@ -49,6 +49,7 @@ session_start();
                 }
                 ?>
 
+                <!--line through the menu-->
                 <div class="menu-divider">
                 </div>
 

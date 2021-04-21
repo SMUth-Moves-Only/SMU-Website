@@ -3,7 +3,7 @@ h1 {
 }
 
 body {
-  background-color: white
+  background-color: #fff4d7
 }
 
 button {
@@ -18,15 +18,148 @@ button {
   text-align: center;
 }
 
+.Login{
+  background-color: #d7d7d7;
+  width: 20%;
+  margin-left: 85%;
+  transform: translate(-50%);
+  padding: 10px;
+  border-radius: 15px;
+  border: black;
+  border-style: solid;
+  border-width: 1px;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.tag {
+     position: relative;
+}
+
+.pictext {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  color: #06206e;
+  background-color: #d7d7d7;
+  opacity: 0.8;
+}
+
+.slogan {
+  color: white;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
 .buttons {
   text-align: center;
 }
 
-.Login {
-  width: 100%;
+/*-----Footer------*/
+.footer {
+     position: relative;
 }
 
+.foottext {
+  color: white;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
 
+.vtechbrand {
+  color: white;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.contact {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-200%, -115%);
+}
+
+/*------Award Pic-------*/
+.award h4 {
+    text-align: center;
+}
+
+.award p {
+  text-align: center;
+}
+
+.award {
+  position: relative;
+}
+
+.boxblue {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  color: white;
+}
+
+.boxred {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  color: white;
+}
+
+.boxgreen {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  color: white;
+}
+
+.boxpurple {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  color: white;
+}
+
+.boxblack {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.blue {
+  background-color: blue;
+  opacity: 0.7;
+}
+
+.red {
+  background-color: red;
+  opacity: 0.7;
+}
+
+.green {
+  background-color: green;
+  opacity: 0.7;
+}
+
+.purple {
+  background-color: purple;
+  opacity: 0.7;
+}
+
+.black {
+  background-color: black;
+  opacity: 0.8;
+}
 
 /*----------------Pic Slide Show--------------*/
 * {box-sizing: border-box}

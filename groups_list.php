@@ -2,10 +2,14 @@
 include "header.php";
 ?>
 
+<link rel="stylesheet" href="css/groups_list.css">
 
+<br><br><br>
 
+<div class="courseInfo">
 
 <form action="includes/student_to_group.inc.php" method="post">
+    <!--course name-->
     <label>Course Name:</label>
     <select name="GroupSelect">
         <?php
@@ -19,6 +23,7 @@ include "header.php";
         ?>
     </select><br>
 
+    <!--student list-->
     <label>Student List:</label>
     <select name="StudentSelect">
         <?php
@@ -31,5 +36,9 @@ include "header.php";
         }
         ?>
     </select><br>
+
+    <!--submit button-->
     <button type="submit" name="create-group"> Submit </button>
+
 </form>
+</div>

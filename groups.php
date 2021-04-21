@@ -38,7 +38,7 @@ if (!isset($_SESSION['professor_id'])) {
 </div>
 
 <div class="cgroup">
-  <h2></h2>
+  <h2>Course Title</h2>
   <form action="includes/groups_list.inc.php" method="post">
     <label>Course Name:</label>
     <select name="CourseSelect">
