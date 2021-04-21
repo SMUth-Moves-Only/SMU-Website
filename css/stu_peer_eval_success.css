@@ -1,0 +1,36 @@
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+body {
+  background-color: tan
+}
+
+button {
+  background: #06206e;
+  padding: 10px 50px;
+  cursor: pointer;
+  color: #daf17f;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 120%
+}
+
+.Eval {
+  background: #06206e;
+  color: white;
+  padding: 10px 50px;
+  font-size: 200%
+}
+.checkmark{
+  text-align: center;
+  padding: 10px;
+}

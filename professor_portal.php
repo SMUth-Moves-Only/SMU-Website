@@ -42,7 +42,7 @@ if (!isset($_SESSION['professor_id'])) {
                     <!--FILE TO UPLOAD COURSES. MAY NEED TO ALSO INCLUDE CODE FROM STUDENT_FILE_UPLOAD-->
                 </div>
                 <div class="column">
-                    <button>Schedule Peer <br> Evaluation</button>
+                    <button onclick="window.location='student_peer_eval.php';">Schedule Peer <br> Evaluation</button>
                 </div>
             </div>
             <div class="row">

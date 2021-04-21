@@ -159,6 +159,12 @@ else if ($_SERVER['QUERY_STRING'] == "error=invalidname" /*ERROR MESSAGE: inform
     <strong>ERROR:</strong> Name is invalid.
   </div>';
 }
+else if ($_SERVER['QUERY_STRING'] == "error=invaliddate" /*ERROR MESSAGE: information input error*/) {
+  echo '<div class="alert warning" name="dateinvalid">
+    <span class="closebtn">&times;</span>
+    <strong>ERROR:</strong> Can not select a passed date.
+  </div>';
+}
 
 /*
 error=wrongpwd

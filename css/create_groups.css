@@ -12,17 +12,25 @@ button {
   font-size: 120%
 }
 
-input {
+.cgroup input {
   width: 25%;
 }
 
-label {
+.poptable input {
+  width: 100%;
+  padding: 100px;
+  margin: 0px;
+}
 
+.poptable {
+  margin-left: 51%;
+  transform: translate(-50%);
+  text-align: center;
 }
 
 .cgroup {
   background-color: #d7d7d7;
-  width: 30%;
+  width: 45%;
   margin-left: 50%;
   transform: translate(-50%);
   text-align: center;
@@ -38,6 +46,16 @@ label {
     width: 70%;
   }
   h1 {
+    text-align: center;
+  }
+  .poptable input {
+    width: 10%;
+    padding: 60px;
+    margin: 0px;
+  }
+  .poptable {
+    margin-left: 42%;
+    transform: translate(-50%);
     text-align: center;
   }
 }
