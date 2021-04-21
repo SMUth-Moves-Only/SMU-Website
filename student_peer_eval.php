@@ -12,6 +12,8 @@ include "header.php";
 
     <h1>Schedule Peer Evaluation</h1>
 
+    <form action="/action_page.php">
+
 <div class="cgroup">
       <label>Select Course:</label>
       <select name="SelectCourse"></select>
@@ -22,7 +24,7 @@ include "header.php";
       <label>Select Group:</label>
       <select name="SelectGroup"></select>
   <br>
-      <form action="/action_page.php">
+
         <label>Select Date:</label>
         <input type="date" id="calendar" name="dateselect">
       </form>

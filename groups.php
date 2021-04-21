@@ -57,6 +57,10 @@ if (!isset($_SESSION['professor_id'])) {
         </tr>
   </div>
 
+  <button type="button">Edit Table</button>
+
+
+
 <!--
 <label>Course Name</label> <br>
 <textarea name="coursename" rows="15" cols="50"></textarea>
