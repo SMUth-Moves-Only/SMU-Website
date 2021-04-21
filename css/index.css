@@ -1,6 +1,9 @@
 @media screen and (max-width: 1200px) {
   .Login { /*********MOBILE STUFF****************/
-    width: 70%;
+    width: 30%;
+  }
+  h1 {
+    font-size: 1em;
   }
 }
 
