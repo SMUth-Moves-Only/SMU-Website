@@ -63,3 +63,9 @@ if (!isset($_SESSION['professor_id'])) {
 
 
 </html>
+
+<?php
+
+include "footer.php";
+
+?>
