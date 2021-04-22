@@ -26,9 +26,10 @@ include "header.php";
   <br>
 
         <label>Select Date:</label>
-        <input type="date" id="calendar" name="dateselect">
+        <input type="date" id="calendar" name="startdateselect">
       </form>
-      <button onclick="window.location='stu_peer_eval_success.php';" type="submit"> SUBMIT </button>
+      <br>
+      <button name="submit" onclick="window.location='stu_peer_eval_success.php';" type="submit"> SUBMIT </button>
 </div>
 
   </body>

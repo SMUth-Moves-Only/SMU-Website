@@ -31,14 +31,18 @@ if (!isset($_SESSION['professor_id'])) {
     <!--team name & submit button & CSV file-->
     <input type="text" id="teamName" name="teamName" placeholder="Group Name"><br>
 
+<!--
     <form action="includes/course_student_add.inc.php" method="post" enctype="multipart/form-data">
       Select CSV to Upload:
       <input type="file" name="fileToUpload" id="fileToUpload"><br>
     </from>
+-->
 
     <button type="submit" name="create-group"> Submit </button>
   </form>
 </div>
+
+<!--
 
 <br><br><br><br>
 
@@ -59,7 +63,7 @@ if (!isset($_SESSION['professor_id'])) {
 
   <button type="button">Edit Table</button>
 
-
+-->
 
 <!--
 <label>Course Name</label> <br>
@@ -69,7 +73,7 @@ if (!isset($_SESSION['professor_id'])) {
 -->
 
 
-<!--
+
 <div class="cgroup">
   <h2>Course Title</h2>
   <form action="includes/groups_list.inc.php" method="post">
@@ -90,7 +94,7 @@ if (!isset($_SESSION['professor_id'])) {
 
   </form>
 </div>
--->
+
 
 <?php
 include "footer.php";
