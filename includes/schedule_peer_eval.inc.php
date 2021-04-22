@@ -4,28 +4,30 @@
 
 session_start();
 
+
 require 'dbh.inc.php';
 
-$groupID = $_POST['GroupSelect'];
 
-$sql = "";
+if (isset($_POST['eval-schedule'])) {
 
-$stmt = mysqli_stmt_init($conn);
+    $startDate = $_POST['startdateselect'];
+    $endDate = $_POST['enddateselect'];
 
-//helps keep database safe
-if (!mysqli_stmt_prepare($stmt, $sql)) {
-    //close the sqli connection to save resources
-    mysqli_stmt_close($stmt);
-    mysqli_close($conn);
-    header("Location: ../index.php?error=sqlerror");
-    exit();
-} 
-else {
-    mysqli_stmt_bind_param($stmt, "ii", $groupID);
-    mysqli_stmt_execute($stmt);
-    //close the sqli connection to save resources
-    mysqli_stmt_close($stmt);
-    mysqli_close($conn);
-    header("Location: ../professor_portal.php?user=peerevalassigned");
-    exit();
+    foreach ($_SESSION['group_schedule'] as &$groupID) {
+        //convert course number to id in database
+        $sql = "insert into schedule_peer_eval (start_date, end_date, group_id) Value (?,?,?);";
+        $stmt = mysqli_stmt_init($conn);
+
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("Location: ../professor_portal.php?error=sqlerror");
+            exit();
+        } else {
+            mysqli_stmt_bind_param($stmt, "ssi", $startDate, $endDate, $groupID);
+            echo $groupID."<br>";
+            echo $startDate."<br>";
+            echo $endDate."<br>";
+            mysqli_stmt_execute($stmt);
+        }
+    }
+    header("Location: ../professor_portal.php?result=schedulesuccess");
 }
