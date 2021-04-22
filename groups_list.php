@@ -10,7 +10,7 @@ include "header.php";
 
 <form action="includes/student_to_group.inc.php" method="post">
     <!--course name-->
-    <label>Course Name:</label>
+    <label>Group Name:</label>
     <select name="GroupSelect">
         <?php
         if (isset($_SESSION['course_info'])) {
