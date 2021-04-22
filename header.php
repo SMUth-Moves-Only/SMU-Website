@@ -165,6 +165,12 @@ else if ($_SERVER['QUERY_STRING'] == "error=invaliddate" /*ERROR MESSAGE: inform
     <strong>ERROR:</strong> Can not select a passed date.
   </div>';
 }
+else if ($_SERVER['QUERY_STRING'] == "result=scheduled" /*ERROR MESSAGE: information input error*/) {
+  echo '<div class="alert success" name="scheduled">
+    <span class="closebtn">&times;</span>
+    <strong>Success:</strong> Scheduled successfully.
+  </div>';
+}
 
 /*
 error=wrongpwd

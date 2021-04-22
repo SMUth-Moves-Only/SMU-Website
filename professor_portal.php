@@ -6,10 +6,6 @@ if (!isset($_SESSION['professor_id'])) {
 }
 ?>
 
-
-
-
-
 <!--Dropdown menus for course title and course ID. Populate both dropdown menus from student's available courses-->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -17,18 +13,12 @@ if (!isset($_SESSION['professor_id'])) {
 <head>
     <meta charset="utf-8">
     <title>Student Portal</title>
-
     <link rel="stylesheet" href="css/professorportal.css">
-
 </head>
-
-<!--ERROR Messages-->
-
 
 <body>
 
     <div>
-
         <?php
         if (isset($_SESSION['fName']) && isset($_SESSION['lName'])) {
             echo '<h1 style="text-align: center" name="welcome">Welcome ' . $_SESSION['fName'] . " " . $_SESSION['lName'] . ' to the Instructor Portal</h1>';
@@ -55,11 +45,5 @@ if (!isset($_SESSION['professor_id'])) {
             </div>
         </div>
     </div>
-
-
 </body>
-
-
-
-
 </html>

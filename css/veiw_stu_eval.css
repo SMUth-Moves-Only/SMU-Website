@@ -1,3 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 h1 {
   text-align: center;
 }
@@ -12,13 +30,9 @@ button {
   font-size: 120%
 }
 
-select {
-  width: 140px;
-}
-
 .data {
   background-color: #d7d7d7;
-  width: 45%;
+  width: 60%;
   margin-left: 50%;
   transform: translate(-50%);
   text-align: center;
@@ -35,5 +49,11 @@ select {
   }
   h1 {
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
   }
 }

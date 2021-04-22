@@ -11,7 +11,7 @@ include "header.php";
   </head>
 
   <body>
-    
+    <h1>Assign Peer Evaluation</h1>
     <div class="data">
       <label>Select Class:</label>
       <select name="SelectClass"></select>
@@ -23,7 +23,7 @@ include "header.php";
       <input type="date" id="calendar" name="startdateselect">
       </form>
    <br>
-      <button type="button" name="submit"> SUBMIT </button>
+      <button onclick="" type="button" name="submit"> SUBMIT </button>
     </div>
 
   </body>
