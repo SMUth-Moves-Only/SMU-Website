@@ -17,6 +17,8 @@ include "header.php";
 <div class="cgroup">
       <label>Select Course:</label>
       <select name="SelectCourse"></select>
+
+<!--
   <br>
       <label>Select Class:</label>
       <select name="SelectClass"></select>
@@ -28,8 +30,9 @@ include "header.php";
         <label>Select Date:</label>
         <input type="date" id="calendar" name="startdateselect">
       </form>
+-->
       <br>
-      <button name="submit" onclick="window.location='stu_peer_eval_success.php';" type="submit"> SUBMIT </button>
+      <button name="submit" onclick="window.location='group_data.php';" type="submit"> SUBMIT </button>
 </div>
 
   </body>
