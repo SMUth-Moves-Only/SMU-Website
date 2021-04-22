@@ -47,3 +47,9 @@ if (!isset($_SESSION['professor_id'])) {
     </div>
 </body>
 </html>
+
+<?php
+
+include "footer.php";
+
+?>
