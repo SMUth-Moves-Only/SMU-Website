@@ -42,6 +42,10 @@ if (!isset($_SESSION['professor_id'])) {
                 <div class="column">
                     <button onclick="window.location='view_stu_eval.php';">View <br> Student <br> Evaluation</button>
                 </div>
+                <div class="column">
+                    <button onclick="">Veiw <br> Analytics</button>
+                </div>
+
             </div>
         </div>
     </div>

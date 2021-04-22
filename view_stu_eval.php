@@ -11,6 +11,8 @@ include "header.php";
 </head>
 
 <body>
+  <div class="big">
+    
   <?php
   require 'includes/dbh.inc.php';
 
@@ -50,6 +52,7 @@ include "header.php";
     exit();
   }
   ?>
+  </div>
 </body>
 
 </html>
