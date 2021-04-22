@@ -50,7 +50,7 @@ if (!isset($_SESSION['professor_id'])) {
                     <button onclick="window.location='groups.php';">Create Student <br> Groups</button>
                 </div>
                 <div class="column">
-                    <button>View <br> Student <br> Evaluation</button>
+                    <button onclick="window.location='view_stu_eval.php';">View <br> Student <br> Evaluation</button>
                 </div>
             </div>
         </div>
