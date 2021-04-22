@@ -18,7 +18,6 @@ include "header.php";
   <?php
 
   require 'includes/dbh.inc.php';
-
   if (isset($_POST['course-submit'])) {
 
     $courseID = $_POST['SelectCourse'];
