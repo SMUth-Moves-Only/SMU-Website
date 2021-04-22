@@ -13,6 +13,8 @@ include "header.php";
 
 <body>
 
+
+<div style="text-align: center">
   <?php
 
   require 'includes/dbh.inc.php';
@@ -41,7 +43,7 @@ include "header.php";
       echo "You will be scheduling evaluations for the following groups:"."<br>";
       while ($row = $result->fetch_assoc()) {
         $_SESSION['group_schedule'][$i] = $row["id"];
-        echo "<p>" . $row["id"] . "</p><br>"; /////////THIS IS WHERE YOU PUT HTML AND CSS
+        echo $row["id"] . " "; /////////THIS IS WHERE YOU PUT HTML AND CSS
         $i++;
       }
       //close the sqli connection to save resources
@@ -51,7 +53,7 @@ include "header.php";
   }
 
   ?>
-
+</div><br><br><br><br><br>
 
 <form action="includes/schedule_peer_eval.inc.php" method="post">
   <div class="data">
