@@ -78,7 +78,7 @@ if (!isset($_SESSION['professor_id'])) {
   <h2>Course Title</h2>
   <form action="includes/groups_list.inc.php" method="post">
     <label>Course Name:</label>
-    <select name="CourseSelect">
+    <select name="CourseName">
       <?php
       if (isset($_SESSION['course_info'])) {
         for ($i = 0; $i < count($_SESSION['course_info']); $i++) {
