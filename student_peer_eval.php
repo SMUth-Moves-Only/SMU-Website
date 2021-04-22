@@ -17,6 +17,7 @@ include "header.php";
   <form action="group_data.php" method="post">
 
     <div class="cgroup">
+      <label>Select Course:</label>
       <select name="SelectCourse">
         <?php
         if (isset($_SESSION['course_info'])) {

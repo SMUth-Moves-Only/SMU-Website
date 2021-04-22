@@ -48,7 +48,7 @@ else if ($_SERVER['QUERY_STRING'] == "error=wrongpwd" /*ERROR MESSAGE: informati
 else if ($_SERVER['QUERY_STRING'] == "error=nouser" /*ERROR MESSAGE: information input error*/) {
   echo '<div class="alert warning" name="nousername">
     <span class="closebtn">&times;</span>
-    <strong>ERROR:</strong> No username.
+    <strong>ERROR:</strong> Username is incorect.
   </div>';
 }
 else if ($_SERVER['QUERY_STRING'] == "error=emptyfields" /*ERROR MESSAGE: information input error*/) {
