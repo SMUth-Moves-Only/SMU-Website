@@ -23,9 +23,6 @@ if (isset($_POST['eval-schedule'])) {
             exit();
         } else {
             mysqli_stmt_bind_param($stmt, "ssi", $startDate, $endDate, $groupID);
-            echo $groupID."<br>";
-            echo $startDate."<br>";
-            echo $endDate."<br>";
             mysqli_stmt_execute($stmt);
         }
     }

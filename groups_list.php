@@ -1,5 +1,9 @@
 <?php
 include "header.php";
+if (!isset($_SESSION['professor_id'])) {
+    header("Location: ./?error=notloggedin");
+    exit();
+  }
 ?>
 
 <link rel="stylesheet" href="css/groups_list.css">

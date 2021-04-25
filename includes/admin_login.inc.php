@@ -12,7 +12,7 @@ if (isset($_POST['login-submit'])) {
 
 	//check if anything was left empty
 	if (empty($mailuid) || empty($password)) {
-		header("Location: ../studentlogin.php?error=emptyfields");
+		header("Location: ../admin_login.php?error=emptyfields");
 		exit();
 	} else {
 		//get user information
@@ -39,18 +39,28 @@ if (isset($_POST['login-submit'])) {
 				}
 
 				if ($pwdCheck == true) {
+
+
+					//destroy old session if signed in previously
+					//have session started to end it
+					session_start();
+					//takes all session variables and deletes all values
+					session_unset();
+					//destroys the session
+					session_destroy();
+
 					//start a session for global variable
 					session_start();
 
 					//saves information not sensitive in website
 					$_SESSION['fName'] = $row['first_name'];
 					$_SESSION['lName'] = $row['last_name'];
-					$_SESSION['id'] = $row['id'];
+					$_SESSION['admin_id'] = $row['id'];
 
 					//take user back with success message
-					header("Location: ../adminportal.php?login=success");
+					header("Location: ../admin_portal.php?login=success");
 				} else {
-					header("Location: ../studentlogin.php?error=wrongpwd");
+					header("Location: ../admin_login.php?error=wrongpwd");
 					exit();
 				}
 			}
@@ -58,7 +68,7 @@ if (isset($_POST['login-submit'])) {
 
 			//if data not recieved
 			else {
-				header("Location: ../studentlogin.php?error=nouser");
+				header("Location: ../admin_login.php?error=nouser");
 				exit();
 			}
 		}

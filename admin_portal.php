@@ -32,7 +32,7 @@ if (!isset($_SESSION['admin_id'])) {
         <div class="width50">
             <div class="row">
                 <div class="column">
-                    <button onclick="window.location='course_student_add.php';">???</button>
+                    <button onclick="window.location='admin_tableau.php';">Tableau</button>
                     <!--FILE TO UPLOAD COURSES. MAY NEED TO ALSO INCLUDE CODE FROM STUDENT_FILE_UPLOAD-->
                 </div>
                 <div class="column">

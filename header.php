@@ -16,7 +16,7 @@ include "analytics.php";
 
           <?php
           session_start();
-          if(isset($_SESSION["student_id"]) || isset($_SESSION["professor_id"])){
+          if(isset($_SESSION["student_id"]) || isset($_SESSION["professor_id"]) || isset($_SESSION["admin_id"])){
           echo'<a class="headerRight headerBtn" href="includes/logout.inc.php">Logout</a>';
           }
           ?>
