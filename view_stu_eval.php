@@ -11,8 +11,11 @@ include "header.php";
 </head>
 
 <body>
+
+  <h1>Student Evaluations</h1>
+
   <div class="big">
-    
+
   <?php
   require 'includes/dbh.inc.php';
 
