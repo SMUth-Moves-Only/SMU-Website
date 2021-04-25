@@ -61,7 +61,7 @@ include "header.php";
     <label>End:</label>
     <input type="date" id="calendar" name="enddateselect">
     <br>
-    <button type="submit" name="eval-schedule"> SUBMIT </button>
+    <button onclick="window.location='group_data_success.php';" type="submit" name="eval-schedule"> SUBMIT </button>
   </div>
 </form>
 </body>
