@@ -37,7 +37,6 @@ include "header.php";
   } else {
     mysqli_stmt_bind_param($stmt, "i", $_SESSION['professor_id']);
     mysqli_stmt_execute($stmt);
-    echo $_SESSION['professor_id'];
     $result = mysqli_stmt_get_result($stmt);
     //save the criterion as session variables for output on page
     $i = 0;

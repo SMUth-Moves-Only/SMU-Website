@@ -20,8 +20,8 @@ $evalNum = $_SESSION['selectedEval'];
 $loggedInStudent = $_SESSION["student_id"];
 
 foreach ($_SESSION['student_list'] as &$student) {
-	
-	$addComments = $_POST["AddComm". $student[0]];
+
+	$addComments = $_POST["AddComm" . $student[0]];
 	//add criterion and scores into database
 	$sql = "INSERT INTO student_criterion_score (criterion_id, score, student_id, student_receiving_id, peerEval_id) VALUES (?,?,?,?,?)";
 	$stmt = mysqli_stmt_init($conn);
@@ -58,7 +58,14 @@ foreach ($_SESSION['student_list'] as &$student) {
 
 		mysqli_stmt_bind_param($stmt, "iiis", $loggedInStudent, $evalNum, $student[0], $addComments);
 		mysqli_stmt_execute($stmt);
+		//have session started to end it
+		session_start();
 
+		//takes all session variables and deletes all values
+		session_unset();
+
+		//destroys the session
+		session_destroy();
 		header("Location: ../evaluation_success.php?result=evalsubmitted");
 	}
 }

@@ -1,9 +1,5 @@
 <?php
 include "header.php";
-if (!isset($_SESSION['student_id'])) {
-  header("Location: ./?error=notloggedin");
-  exit();
-}
 ?>
 
 <!DOCTYPE html>
