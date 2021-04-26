@@ -4,55 +4,64 @@ session_start();
 
 require 'dbh.inc.php';
 
+foreach ($_POST as $param_name => $param_val) {
+	echo "Param: $param_name; Value: $param_val<br />\n";
+}
+
+echo $_POST[str_replace(" ", "_", $_SESSION['criterion'][0]) . $_SESSION['student_list'][2][0]];
+//echo $_POST[ . $_SESSION['student_list'][0][0]];
+
+
+
 //store student, comments, eval number, and logged in student as variables
-$studentIndex = $_SESSION["peer_eval_student_id"][array_search($_POST["StudentSelect"], $_SESSION["student_names"])];
-$addComments = $_POST["AddComm"];
-$evalNum = 1;//ADD PEER EVAL ID
+//$studentIndex = $_SESSION["peer_eval_student_id"][array_search($_POST["StudentSelect"], $_SESSION["student_names"])];
+
+$evalNum = $_SESSION['selectedEval'];
 $loggedInStudent = $_SESSION["student_id"];
 
-//add criterion and scores into database
-$sql = "INSERT INTO student_criterion_score (criterion_id, score, student_id, student_receiving_id, peerEval_id) VALUES (?,?,?,?,?)";
-$stmt = mysqli_stmt_init($conn);
+foreach ($_SESSION['student_list'] as &$student) {
+	
+	$addComments = $_POST["AddComm". $student[0]];
+	//add criterion and scores into database
+	$sql = "INSERT INTO student_criterion_score (criterion_id, score, student_id, student_receiving_id, peerEval_id) VALUES (?,?,?,?,?)";
+	$stmt = mysqli_stmt_init($conn);
 
-for ($i = 0; $i < count($_SESSION['criterion']); $i++) {
+	for ($i = 0; $i < count($_SESSION['criterion']); $i++) {
+
+		if (!mysqli_stmt_prepare($stmt, $sql)) {
+			header("Location: ../index.php?error=sqlerror");
+			exit();
+		} else {
+			//add criterion ids to variable
+			if (isset($_SESSION['criterion_id'])) {
+				$criterion_id = $_SESSION['criterion_id'][$i];
+			}
+
+			//add score to variable
+			if (isset($_POST[str_replace(" ", "_", $_SESSION['criterion'][$i]) . $student[0]])) {
+				$score = $_POST[str_replace(" ", "_", $_SESSION['criterion'][$i]) . $student[0]];
+			}
+
+			mysqli_stmt_bind_param($stmt, "iiiii", $criterion_id, $score, $loggedInStudent, $student[0], $evalNum);
+			mysqli_stmt_execute($stmt);
+		}
+	}
+
+	//add additional comments into the database
+	$sql = "INSERT INTO additional_comments (student_id, peerEval_id, student_receiving_id, additional_comments) VALUES (?,?,?,?)";
+	$stmt = mysqli_stmt_init($conn);
 
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
 		header("Location: ../index.php?error=sqlerror");
 		exit();
-	} 
-	else {
-		//add criterion ids to variable
-		if (isset($_SESSION['criterion_id'])) {
-			$criterion_id = $_SESSION['criterion_id'][$i];
-		}
+	} else {
 
-		//add score to variable
-		if (isset($_POST[str_replace(" ", "_", $_SESSION['criterion'][$i])])) {
-			$score = $_POST[str_replace(" ", "_", $_SESSION['criterion'][$i])];
-		}
-
-		mysqli_stmt_bind_param($stmt, "iiiii", $criterion_id, $score, $loggedInStudent, $studentIndex, $evalNum);
+		mysqli_stmt_bind_param($stmt, "iiis", $loggedInStudent, $evalNum, $student[0], $addComments);
 		mysqli_stmt_execute($stmt);
+
+		header("Location: ../evaluation_success.php?result=evalsubmitted");
 	}
 }
-
-//add additional comments into the database
-$sql = "INSERT INTO additional_comments (student_id, peerEval_id, student_receiving_id, additional_comments) VALUES (?,?,?,?)";
-$stmt = mysqli_stmt_init($conn);
-
-if (!mysqli_stmt_prepare($stmt, $sql)) {
-	header("Location: ../index.php?error=sqlerror");
-	exit();
-} 
-else {
-
-	mysqli_stmt_bind_param($stmt, "iiis", $loggedInStudent, $evalNum, $studentIndex, $addComments);
-	mysqli_stmt_execute($stmt);
-
-	header("Location: ../evaluationsuccess.php?result=evalsubmitted");
-}
-
-
 
 
 //send email once evaluation is submitted to database

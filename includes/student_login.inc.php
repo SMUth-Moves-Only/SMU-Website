@@ -56,9 +56,69 @@ if (isset($_POST['login-submit'])) {
 					$_SESSION['lName'] = $row['last_name'];
 					$_SESSION['student_id'] = $row['id'];
 
+					$sql = "SELECT schedule_peer_eval.id, student_group.team_name, group_assign.student_id
+					FROM schedule_peer_eval
+					JOIN student_group ON student_group.id = schedule_peer_eval.group_id
+					JOIN group_assign ON student_group.id = group_assign.group_id
+					WHERE group_assign.student_id = ?;";
+					$stmt = mysqli_stmt_init($conn);
 
-					//take user back with success message
-					header("Location: ../student_portal.php?login=success");
+					if (!mysqli_stmt_prepare($stmt, $sql)) {
+						header("Location: ../index.php?error=sqlerror");
+						exit();
+					} else {
+						mysqli_stmt_bind_param($stmt, "i", $_SESSION['student_id']);
+						mysqli_stmt_execute($stmt);
+
+						//grabs the result for the stmt
+						$result = mysqli_stmt_get_result($stmt);
+
+						$scheduledEval = array();
+						//checks if result was recieved
+						//stores in array
+						while ($row = mysqli_fetch_assoc($result)) {
+							array_push($scheduledEval, $row['id']);
+						}
+
+						foreach ($scheduledEval as &$eval) {
+
+							$sql = "SELECT peerEval_id, start_date, end_date, team_name, group_id
+								FROM student_criterion_score
+								JOIN schedule_peer_eval ON student_criterion_score.peerEval_id = schedule_peer_eval.id
+								JOIN student_group ON schedule_peer_eval.group_id = student_group.id
+								WHERE schedule_peer_eval.id = ? AND student_id = ?
+								GROUP BY student_id, peerEval_id;";
+							$stmt = mysqli_stmt_init($conn);
+
+							if (!mysqli_stmt_prepare($stmt, $sql)) {
+								header("Location: ../index.php?error=sqlerror");
+								exit();
+							} else {
+								mysqli_stmt_bind_param($stmt, "ii", $eval, $_SESSION['student_id']);
+								mysqli_stmt_execute($stmt);
+
+								//grabs the result for the stmt
+								$result = mysqli_stmt_get_result($stmt);
+
+								//checks if result was recieved
+								//stores in array
+								$availEval = array();
+								$i = 0;
+								while ($row = mysqli_fetch_assoc($result)) {
+									$_SESSION['availEval'][$i] = array($row['peerEval_id'], $row['start_date'], $row['end_date'], $row['team_name'], $row['group_id']);
+									$i++;
+								}
+
+
+							}
+
+						}
+
+
+
+						//take user back with success message
+						header("Location: ../student_portal.php?login=success");
+					}
 				} else {
 					header("Location: ../student_login.php?error=wrongpwd");
 					exit();

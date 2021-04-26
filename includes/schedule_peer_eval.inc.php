@@ -26,5 +26,5 @@ if (isset($_POST['eval-schedule'])) {
             mysqli_stmt_execute($stmt);
         }
     }
-    header("Location: ../professor_portal.php?result=schedulesuccess");
+    header("Location: ../group_data_success.php?result=schedulesuccess");
 }

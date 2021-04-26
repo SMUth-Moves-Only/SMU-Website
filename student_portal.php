@@ -39,44 +39,24 @@ if (!isset($_SESSION['student_id'])) {
     <h2 style="float: left">Course Information</h2><br><br><br><br>
 
     <!--course title-->
-    <form action="" method="post" name="welcome">
+    <form action="includes/populate_peer_eval.inc.php" method="post" name="welcome">
       <label>Course Title </label>
-      <select id="CourseSelect">
+      <select name="EvalSelect">
         <?php
-        if (isset($_SESSION['courses'])) {
-          for ($i = 0; $i < count($_SESSION['courses']); $i++) {
-            echo '<option>' . $_SESSION['courses'][$i] . '</option>';
+        if (isset($_SESSION['availEval'])) {
+          for ($i = 0; $i < count($_SESSION['availEval']); $i++) {
+            echo '<option value="'. $_SESSION['availEval'][$i][4] .'">' . 'Eval ID: ' . $_SESSION['availEval'][$i][0] . ' Start Date: ' . $_SESSION['availEval'][$i][1] . ' End Date: ' . $_SESSION['availEval'][$i][2] . ' Team Name: ' . $_SESSION['availEval'][$i][3] . '</option>';
           }
         } else {
-          echo '<option value="" disabled selected hidden>No Courses Available</option>';
+          echo '<option value="" disabled selected hidden>No Evaluations Available</option>';
         }
         ?>
       </select>
+      <div class="buttons">
+        <button type="submit" name="eval">Submit</button>
+      </div>
     </form>
     </label></p>
-
-    <!--course id-->
-    <form action="" method="post" name="welcome2">
-      <label>Course ID </label>
-      <select id="CourseID">
-        <?php
-        if (isset($_SESSION['courses'])) {
-          for ($i = 0; $i < count($_SESSION['courses']); $i++) {
-            echo '<option>' . $_SESSION['courses'][$i] . '</option>';
-          }
-        } else {
-          echo '<option value="" disabled selected hidden>No Course ID Available</option>';
-        }
-        ?>
-      </select>
-    </form>
-    </label></p>
-
-
-
-    <div class="buttons">
-      <button onclick="window.location='coursedetails.php';">Submit</button>
-    </div>
 
   </div>
 
