@@ -57,6 +57,19 @@ if (isset($_POST['login-submit'])) {
 					$_SESSION['lName'] = $row['last_name'];
 					$_SESSION['professor_id'] = $row['id'];
 
+
+
+					$sql = "UPDATE professor SET lldt = NOW() WHERE id = ?;";
+					$stmt = mysqli_stmt_init($conn);
+
+					if (!mysqli_stmt_prepare($stmt, $sql)) {
+						header("Location: ../index.php?error=sqlerror");
+						exit();
+					} else {
+						mysqli_stmt_bind_param($stmt, "i", $_SESSION['professor_id']);
+						mysqli_stmt_execute($stmt);
+					}
+
 					//get course information for all courses that the professor is an instructor for
 					$sql = "SELECT  professor_course.id, term_id, course_name, course_number, course_id, name, start_date, end_date FROM professor_course JOIN course AS c ON c.id=professor_course.course_id JOIN term AS t ON t.id=professor_course.term_id WHERE professor_id = ?;";
 					$stmt = mysqli_stmt_init($conn);

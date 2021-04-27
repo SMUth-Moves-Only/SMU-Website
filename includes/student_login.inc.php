@@ -56,6 +56,20 @@ if (isset($_POST['login-submit'])) {
 					$_SESSION['lName'] = $row['last_name'];
 					$_SESSION['student_id'] = $row['id'];
 
+
+					$sql = "UPDATE student SET lldt = NOW() WHERE id = ?;";
+					$stmt = mysqli_stmt_init($conn);
+
+					if (!mysqli_stmt_prepare($stmt, $sql)) {
+						header("Location: ../index.php?error=sqlerror");
+						exit();
+					} else {
+						mysqli_stmt_bind_param($stmt, "i", $_SESSION['student_id']);
+						mysqli_stmt_execute($stmt);
+					}
+
+
+
 					$sql = "SELECT schedule_peer_eval.id, student_group.team_name, group_assign.student_id
 					FROM schedule_peer_eval
 					JOIN student_group ON student_group.id = schedule_peer_eval.group_id
