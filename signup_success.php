@@ -11,7 +11,6 @@ if (!isset($_SESSION['professor_id'])) {
 
 <head>
   <meta charset="utf-8">
-  <title>peerevaluation</title>
 </head>
 
 <link rel="stylesheet" href="css/stu_peer_eval_success.css">
@@ -21,13 +20,14 @@ if (!isset($_SESSION['professor_id'])) {
     <img src="img/checkmark.svg" alt="check">
   </div>
 
-  <h3>Thank you! <br> The evaluation has been assigned <br> successfully.</h3>
+  <h3>Thank you! <br> Your account has been craeated <br> successfully.</h3>
 
-  <h1>A confirmation email has been sent to the assigned student.</h1>
+  <h1>You can now Login to your account.</h1>
 
 </body>
 
 </html>
+
 
 <?php
 include "footer.php";

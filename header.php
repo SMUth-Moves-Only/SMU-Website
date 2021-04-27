@@ -132,7 +132,7 @@ else if ($_SERVER['QUERY_STRING'] == "result=evalsubmitted" /*ERROR MESSAGE: inf
 else if ($_SERVER['QUERY_STRING'] == "user=accountcreated" /*ERROR MESSAGE: information input error*/) {
   echo '<div class="alert warning" name="createdaccount">
     <span class="closebtn">&times;</span>
-    <strong>Success:</strong> Your account was crreated successfully.
+    <strong>Success:</strong> Your account was created successfully.
   </div>';
 }
 else if ($_SERVER['QUERY_STRING'] == "user=peerevalassigned" /*ERROR MESSAGE: information input error*/) {

@@ -27,7 +27,7 @@ include "header.php";
         </div>
         <div class="buttons">
           <h2>Or register now!</h2>
-          <button onclick="window.location='register.php';">REGISTER</button>
+          <button onclick="window.location='signup.php';">SIGN UP</button>
         </div>
     </div>
 

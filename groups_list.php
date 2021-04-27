@@ -8,7 +8,9 @@ if (!isset($_SESSION['professor_id'])) {
 
 <link rel="stylesheet" href="css/groups_list.css">
 
-<br><br><br>
+<h1>Select Group</h1>
+
+
 
 <div class="courseInfo">
 
