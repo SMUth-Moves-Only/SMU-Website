@@ -4,24 +4,19 @@ session_start();
 
 require 'dbh.inc.php';
 
-foreach ($_POST as $param_name => $param_val) {
-	echo "Param: $param_name; Value: $param_val<br />\n";
-}
-
-echo $_POST[str_replace(" ", "_", $_SESSION['criterion'][0]) . $_SESSION['student_list'][2][0]];
-//echo $_POST[ . $_SESSION['student_list'][0][0]];
-
-
-
 //store student, comments, eval number, and logged in student as variables
 //$studentIndex = $_SESSION["peer_eval_student_id"][array_search($_POST["StudentSelect"], $_SESSION["student_names"])];
 
 $evalNum = $_SESSION['selectedEval'];
 $loggedInStudent = $_SESSION["student_id"];
 
-foreach ($_SESSION['student_list'] as &$student) {
+for ($j = 0; $j < count($_SESSION['student_list']); $j++) {
 
-	$addComments = $_POST["AddComm" . $student[0]];
+	echo 'J: '.$j;
+	echo 'Name: '. $_SESSION['student_list'][$j][1];
+	echo "Count: " . count($_SESSION['student_list'])."<br>";
+	
+	$addComments = $_POST["AddComm" . $_SESSION['student_list'][$j][0]];
 	//add criterion and scores into database
 	$sql = "INSERT INTO student_criterion_score (criterion_id, score, student_id, student_receiving_id, peerEval_id) VALUES (?,?,?,?,?)";
 	$stmt = mysqli_stmt_init($conn);
@@ -38,11 +33,11 @@ foreach ($_SESSION['student_list'] as &$student) {
 			}
 
 			//add score to variable
-			if (isset($_POST[str_replace(" ", "_", $_SESSION['criterion'][$i]) . $student[0]])) {
-				$score = $_POST[str_replace(" ", "_", $_SESSION['criterion'][$i]) . $student[0]];
+			if (isset($_POST[str_replace(" ", "_", $_SESSION['criterion'][$i]) . $_SESSION['student_list'][$j][0]])) {
+				$score = $_POST[str_replace(" ", "_", $_SESSION['criterion'][$i]) . $_SESSION['student_list'][$j][0]];
 			}
-
-			mysqli_stmt_bind_param($stmt, "iiiii", $criterion_id, $score, $loggedInStudent, $student[0], $evalNum);
+			
+			mysqli_stmt_bind_param($stmt, "iiiii", $criterion_id, $score, $loggedInStudent, $_SESSION['student_list'][$j][0], $evalNum);
 			mysqli_stmt_execute($stmt);
 		}
 	}
@@ -56,7 +51,7 @@ foreach ($_SESSION['student_list'] as &$student) {
 		exit();
 	} else {
 
-		mysqli_stmt_bind_param($stmt, "iiis", $loggedInStudent, $evalNum, $student[0], $addComments);
+		mysqli_stmt_bind_param($stmt, "iiis", $loggedInStudent, $evalNum, $_SESSION['student_list'][$j][0], $addComments);
 		mysqli_stmt_execute($stmt);
 		//have session started to end it
 		session_start();
@@ -66,9 +61,11 @@ foreach ($_SESSION['student_list'] as &$student) {
 
 		//destroys the session
 		session_destroy();
+
 		header("Location: ../evaluation_success.php?result=evalsubmitted");
 	}
 }
+
 
 
 //send email once evaluation is submitted to database

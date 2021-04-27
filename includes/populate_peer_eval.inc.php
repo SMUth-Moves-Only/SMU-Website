@@ -3,6 +3,8 @@ session_start();
 
 require 'dbh.inc.php';
 
+unset($_SESSION['student_list']);
+
 $selectedEval = $_POST['EvalSelect'];
 
 $_SESSION['selectedEval'] = $selectedEval;
@@ -53,12 +55,11 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 			$i++;
 		}
 
-		$sql = "SELECT student_id, first_name, last_name from student_group
-		inner join group_assign
-		on student_group.id = group_assign.group_id
-		inner join student
-		on student.id = group_assign.student_id
-		where group_id = ?;";
+		$sql = "SELECT student_id, first_name, last_name 
+		from student
+		JOIN group_assign ON group_assign.student_id = student.id
+		JOIN schedule_peer_eval ON group_assign.group_id = schedule_peer_eval.group_id
+		WHERE schedule_peer_eval.id = ?";
 
 		$stmt = mysqli_stmt_init($conn);
 

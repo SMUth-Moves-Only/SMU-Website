@@ -14,7 +14,7 @@ include "header.php";
 <body>
 
 
-<div style="text-align: center">
+<div class="group_list">
   <?php
 
   require 'includes/dbh.inc.php';

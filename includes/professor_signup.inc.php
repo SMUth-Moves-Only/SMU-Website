@@ -11,119 +11,101 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/SMTP.php';
 
 
-//checks for submit button submission
-if (isset($_POST['student-signup'])) {
 
 
-	//require database handler
-	require 'dbh.inc.php';
+//require database handler
+require 'dbh.inc.php';
 
 
-	//fetch information from inputs
-	$fName = $_POST["fName"];
-	$lName = $_POST["lName"];
-	$major = $_POST["major"];
-	$email = $_POST['email'];
-	$password = $_POST['pwd'];
-	$passwordRepeat = $_POST['repeatpwd'];
+//fetch information from inputs
+$fName = $_POST["fName"];
+$lName = $_POST["lName"];
+$email = $_POST['email'];
+$password = $_POST['pwd'];
+$passwordRepeat = $_POST['repeatpwd'];
 
-	//check for empty fields
-	if (empty($fName) || empty($lName) || empty($email) || empty($password) || empty($passwordRepeat)) {
-		//send user back to signup page
-		//sends back information like error and fields already filled out
-		header("Location: ../index.php?error=emptyfields&fName=" . $fName . "&lName=" . $lName . "&email=" . $email);
-		//stops code from running if there was a mistake
+//check for empty fields
+if (empty($fName) || empty($lName) || empty($email) || empty($password) || empty($passwordRepeat)) {
+	//send user back to signup page
+	//sends back information like error and fields already filled out
+	header("Location: ../index.php?error=emptyfields&fName=" . $fName . "&lName=" . $lName . "&email=" . $email);
+	//stops code from running if there was a mistake
+	exit();
+}
+
+//checks for valid email
+else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	header("Location: ../index.php?error=invalidmail&uid=" . $email);
+	//stops code from running if there was a mistake
+	exit();
+}
+
+//check if password is repeated correctly
+else if ($password !== $passwordRepeat) {
+	header("Location: ../index.php?error=passwordmismatch");
+	//stops code from running if there was a mistake
+	exit();
+} else {
+	//check if professor is already in database
+	$sql = "SELECT email_address FROM professor WHERE email_address=?";
+
+	$stmt = mysqli_stmt_init($conn);
+
+	//helps keep database safe
+	if (!mysqli_stmt_prepare($stmt, $sql)) {
+		//close the sqli connection to save resources
+		mysqli_stmt_close($stmt);
+		mysqli_close($conn);
+		header("Location: ../index.php?error=sqlerror1");
 		exit();
-	}
+	} else {
+		//bind email from form
+		mysqli_stmt_bind_param($stmt, "s", $email);
+		mysqli_stmt_execute($stmt);
 
-	//checks for valid email
-	else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		header("Location: ../index.php?error=invalidmail&uid=" . $email);
-		//stops code from running if there was a mistake
-		exit();
-	}
+		//stores results in stmt variable
+		mysqli_stmt_store_result($stmt);
 
-	//check if password is repeated correctly
-	else if ($password !== $passwordRepeat) {
-		header("Location: ../index.php?error=passwordmismatch");
-		//stops code from running if there was a mistake
-		exit();
-	}
+		//checks how many rows of results from database
+		$resultCheck = mysqli_stmt_num_rows($stmt);
 
-	else {
-		//check if professor is already in database
-		$sql = "SELECT email_address FROM professor WHERE email_address=?";
-
-		$stmt = mysqli_stmt_init($conn);
-
-		//helps keep database safe
-		if (!mysqli_stmt_prepare($stmt, $sql)) {
+		//if email is already taken
+		if ($resultCheck > 0) {
 			//close the sqli connection to save resources
 			mysqli_stmt_close($stmt);
 			mysqli_close($conn);
-			header("Location: ../index.php?error=sqlerror1");
+			header("Location: ../index.php?error=emailtaken");
 			exit();
 		}
-
+		//insert professor into the database
 		else {
-			//bind email from form
-			mysqli_stmt_bind_param($stmt, "s", $email);
-			mysqli_stmt_execute($stmt);
+			$sql = "INSERT INTO professor (first_name, last_name, email_address, password, live) VALUES (?, ?, ?, ?, 1)";
 
-			//stores results in stmt variable
-			mysqli_stmt_store_result($stmt);
+			$stmt = mysqli_stmt_init($conn);
 
-			//checks how many rows of results from database
-			$resultCheck = mysqli_stmt_num_rows($stmt);
-
-			//if email is already taken
-			if ($resultCheck > 0) {
+			//helps keep database safe
+			if (!mysqli_stmt_prepare($stmt, $sql)) {
 				//close the sqli connection to save resources
 				mysqli_stmt_close($stmt);
 				mysqli_close($conn);
-				header("Location: ../index.php?error=emailtaken");
+				header("Location: ../index.php?error=sqlerror");
 				exit();
-			}
-			//insert professor into the database
-			else {
-				$sql = "INSERT INTO professor (first_name, last_name, email_address, password, live) VALUES (?, ?, ?, ?, 1)";
+			} else {
 
-				$stmt = mysqli_stmt_init($conn);
+				//hash the password
+				//bcrypt always update when it gets decrypted
 
-				//helps keep database safe
-				if (!mysqli_stmt_prepare($stmt, $sql)) {
-					//close the sqli connection to save resources
-					mysqli_stmt_close($stmt);
-					mysqli_close($conn);
-					header("Location: ../index.php?error=sqlerror");
-					exit();
-				} else {
+				$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-					//hash the password
-					//bcrypt always update when it gets decrypted
-					if(strlen($password) < 8)
-					{
-						echo "Enter a password that is at least 8 characters";
-					}
-
-					$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-
-					//bind and add users to the database
-					mysqli_stmt_bind_param($stmt, "sssss", $fName, $lName, $email, $hashedPwd);
-					mysqli_stmt_execute($stmt);
-					//close the sqli connection to save resources
-					mysqli_stmt_close($stmt);
-					mysqli_close($conn);
-					header("Location: ../index.php?user=accountcreated");
-					exit();
-				}
+				//bind and add users to the database
+				mysqli_stmt_bind_param($stmt, "ssss", $fName, $lName, $email, $hashedPwd);
+				mysqli_stmt_execute($stmt);
+				//close the sqli connection to save resources
+				mysqli_stmt_close($stmt);
+				mysqli_close($conn);
+				header("Location: ../index.php?user=accountcreated");
+				exit();
 			}
 		}
 	}
-}
-
-//send user back if they try to access without clicking signup button
-else {
-	header("Location: ../index.php?=invalidaccess");
-	exit();
 }

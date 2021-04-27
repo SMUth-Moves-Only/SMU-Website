@@ -25,6 +25,11 @@ button {
   border-width: 1px;
 }
 
+.group_list{
+  text-align: center;
+  
+}
+
 @media screen and (max-width: 1200px) {
   .data { /********************************MOBILE STUFF!!!!!!!!!!!!!!!!!!!!!******************************************/
     width: 70%;

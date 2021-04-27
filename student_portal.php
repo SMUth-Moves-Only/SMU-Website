@@ -45,7 +45,7 @@ if (!isset($_SESSION['student_id'])) {
         <?php
         if (isset($_SESSION['availEval'])) {
           for ($i = 0; $i < count($_SESSION['availEval']); $i++) {
-            echo '<option value="'. $_SESSION['availEval'][$i][4] .'">' . 'Eval ID: ' . $_SESSION['availEval'][$i][0] . ' Start Date: ' . $_SESSION['availEval'][$i][1] . ' End Date: ' . $_SESSION['availEval'][$i][2] . ' Team Name: ' . $_SESSION['availEval'][$i][3] . '</option>';
+            echo '<option value="'. $_SESSION['availEval'][$i][0] .'">' . 'Eval ID: ' . $_SESSION['availEval'][$i][0] . ' Start Date: ' . $_SESSION['availEval'][$i][1] . ' End Date: ' . $_SESSION['availEval'][$i][2] . ' Team Name: ' . $_SESSION['availEval'][$i][3] . '</option>';
           }
         } else {
           echo '<option value="-1" disabled selected hidden>No Evaluations Available</option>';

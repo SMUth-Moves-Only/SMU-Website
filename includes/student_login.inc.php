@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 //checks for submit button submission
 if (isset($_POST['login-submit'])) {
 	//require the database handler
@@ -94,10 +94,13 @@ if (isset($_POST['login-submit'])) {
 						//checks if result was recieved
 						//stores in array
 						while ($row = mysqli_fetch_assoc($result)) {
+
 							array_push($scheduledEval, $row['id']);
 						}
+						$i = 0;
+						foreach ($scheduledEval as $eval) {
+							
 
-						foreach ($scheduledEval as &$eval) {
 
 							$sql = "SELECT peerEval_id, start_date, end_date, team_name, group_id
 								FROM student_criterion_score
@@ -105,7 +108,7 @@ if (isset($_POST['login-submit'])) {
 								JOIN student_group ON schedule_peer_eval.group_id = student_group.id
 								WHERE schedule_peer_eval.id = ? AND student_id = ?
 								GROUP BY student_id, peerEval_id;";
-								
+
 							$stmt = mysqli_stmt_init($conn);
 
 							if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -121,15 +124,42 @@ if (isset($_POST['login-submit'])) {
 								//checks if result was recieved
 								//stores in array
 								$availEval = array();
-								$i = 0;
-								while ($row = mysqli_fetch_assoc($result)) {
-									$_SESSION['availEval'][$i] = array($row['peerEval_id'], $row['start_date'], $row['end_date'], $row['team_name'], $row['group_id']);
-									$i++;
+
+								
+
+								if (mysqli_num_rows($result) == 0) {
+
+									$sql = "SELECT schedule_peer_eval.id, start_date, end_date, team_name, group_id
+									FROM schedule_peer_eval
+									JOIN student_group ON student_group.id = schedule_peer_eval.group_id
+									WHERE schedule_peer_eval.id = ?;";
+
+									$stmt = mysqli_stmt_init($conn);
+
+									if (!mysqli_stmt_prepare($stmt, $sql)) {
+										header("Location: ../index.php?error=sqlerror");
+										exit();
+									} else {
+										mysqli_stmt_bind_param($stmt, "i", $eval);
+										mysqli_stmt_execute($stmt);
+
+										//grabs the result for the stmt
+										$result = mysqli_stmt_get_result($stmt);
+
+										$scheduledEval = array();
+										//checks if result was recieved
+										//stores in array
+										while ($row = mysqli_fetch_assoc($result)) {
+											//echo 'EVAL'.$eval.'<br>';
+											//echo 'EVAL'.$row['team_name'].'<br>';
+											$_SESSION['availEval'][$i] = array($row['id'], $row['start_date'], $row['end_date'], $row['team_name'], $row['group_id']);
+										}
+										$i++;
+
+									}
+
 								}
-
-
 							}
-
 						}
 
 
