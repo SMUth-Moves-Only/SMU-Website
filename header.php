@@ -76,7 +76,7 @@ else if ($_SERVER['QUERY_STRING'] == "error=invalidteamname" /*ERROR MESSAGE: in
   </div>';
 }
 else if ($_SERVER['QUERY_STRING'] == "result=contactsuccess" /*ERROR MESSAGE: information input error*/) {
-  echo '<div class="alert warning" name="successcontact">
+  echo '<div class="alert success" name="successcontact">
     <span class="closebtn">&times;</span>
     <strong>Success:</strong> Your message was sent successfully.
   </div>';
@@ -112,37 +112,37 @@ else if ($_SERVER['QUERY_STRING'] == "error=servererror" /*ERROR MESSAGE: inform
   </div>';
 }
 else if ($_SERVER['QUERY_STRING'] == "result=coursecreated" /*ERROR MESSAGE: information input error*/) {
-  echo '<div class="alert warning" name="createdcourse">
+  echo '<div class="alert success" name="createdcourse">
     <span class="closebtn">&times;</span>
     <strong>Success:</strong> Course was created.
   </div>';
 }
 else if ($_SERVER['QUERY_STRING'] == "result=groupcreated" /*ERROR MESSAGE: information input error*/) {
-  echo '<div class="alert warning" name="createdgroup">
+  echo '<div class="alert success" name="createdgroup">
     <span class="closebtn">&times;</span>
     <strong>Success:</strong> Group was created.
   </div>';
 }
 else if ($_SERVER['QUERY_STRING'] == "result=evalsubmitted" /*ERROR MESSAGE: information input error*/) {
-  echo '<div class="alert warning" name="sumbmittedeval">
+  echo '<div class="alert success" name="sumbmittedeval">
     <span class="closebtn">&times;</span>
     <strong>Success:</strong> Evaluation was submitted successfully.
   </div>';
 }
 else if ($_SERVER['QUERY_STRING'] == "user=accountcreated" /*ERROR MESSAGE: information input error*/) {
-  echo '<div class="alert warning" name="createdaccount">
+  echo '<div class="alert success" name="createdaccount">
     <span class="closebtn">&times;</span>
     <strong>Success:</strong> Your account was created successfully.
   </div>';
 }
 else if ($_SERVER['QUERY_STRING'] == "user=peerevalassigned" /*ERROR MESSAGE: information input error*/) {
-  echo '<div class="alert warning" name="assignedpeereval">
+  echo '<div class="alert success" name="assignedpeereval">
     <span class="closebtn">&times;</span>
     <strong>Success:</strong> You have been assigned a peer evaluation.
   </div>';
 }
 else if ($_SERVER['QUERY_STRING'] == "user=studentassigned" /*ERROR MESSAGE: information input error*/) {
-  echo '<div class="alert warning" name="successcontact">
+  echo '<div class="alert success" name="successcontact">
     <span class="closebtn">&times;</span>
     <strong>Success:</strong> You have been assigned to a group.
   </div>';
