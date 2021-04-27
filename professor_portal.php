@@ -43,7 +43,7 @@ if (!isset($_SESSION['professor_id'])) {
                     <button onclick="window.location='view_stu_eval.php';">View <br> Student <br> Evaluation</button>
                 </div>
                 <div class="column">
-                    <button onclick="window.location='instructor_analytics.php';">Veiw <br> Analytics</button>
+                    <button onclick="window.location='instructor_analytics.php';">View <br> Analytics</button>
                 </div>
 
             </div>

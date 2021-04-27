@@ -13,16 +13,12 @@ if (!isset($_SESSION['admin_id'])) {
 <head>
     <meta charset="utf-8">
     <title>Admin Portal</title>
-
     <link rel="stylesheet" href="css/professorportal.css">
-
 </head>
-
 
 <body>
 
     <div>
-
         <?php
         if (isset($_SESSION['fName']) && isset($_SESSION['lName'])) {
             echo '<h1 style="text-align: center" name="welcome">Welcome ' . $_SESSION['fName'] . " " . $_SESSION['lName'] . ' to the Instructor Portal</h1>';
@@ -36,7 +32,7 @@ if (!isset($_SESSION['admin_id'])) {
                     <!--FILE TO UPLOAD COURSES. MAY NEED TO ALSO INCLUDE CODE FROM STUDENT_FILE_UPLOAD-->
                 </div>
                 <div class="column">
-                    <button>???</button>
+                    <button>Admin <br> Statistics</button>
                 </div>
             </div>
             <div class="row">
@@ -49,7 +45,6 @@ if (!isset($_SESSION['admin_id'])) {
             </div>
         </div>
     </div>
-
 
 </body>
 
@@ -67,6 +62,5 @@ if (!isset($_SESSION['admin_id'])) {
         }
     }
 </script>
-
 
 </html>
