@@ -32,7 +32,11 @@ if (isset($_POST['login-submit'])) {
 			if ($row = mysqli_fetch_assoc($result)) {
 				//check password
 				//set up reverse hash
+
+				$pwdCheck = password_verify($password, $row['password']);
+
 				if ($password == $row['password']) {
+					//if ($password == $pwdCheck) {
 					$pwdCheck = true;
 				} else {
 					$pwdCheck = false;
