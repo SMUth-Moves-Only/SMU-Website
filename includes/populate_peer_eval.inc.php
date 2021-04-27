@@ -7,6 +7,11 @@ $selectedEval = $_POST['EvalSelect'];
 
 $_SESSION['selectedEval'] = $selectedEval;
 
+if(!isset($_POST['EvalSelect'])){
+	header("Location: ../student_portal.php?error=invalidselection");
+	exit();
+}
+
 //get all students from database
 $sql = "SELECT id, first_name, last_name FROM student";
 $stmt = mysqli_stmt_init($conn);

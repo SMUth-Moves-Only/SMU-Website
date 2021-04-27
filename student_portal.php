@@ -48,7 +48,7 @@ if (!isset($_SESSION['student_id'])) {
             echo '<option value="'. $_SESSION['availEval'][$i][4] .'">' . 'Eval ID: ' . $_SESSION['availEval'][$i][0] . ' Start Date: ' . $_SESSION['availEval'][$i][1] . ' End Date: ' . $_SESSION['availEval'][$i][2] . ' Team Name: ' . $_SESSION['availEval'][$i][3] . '</option>';
           }
         } else {
-          echo '<option value="" disabled selected hidden>No Evaluations Available</option>';
+          echo '<option value="-1" disabled selected hidden>No Evaluations Available</option>';
         }
         ?>
       </select>

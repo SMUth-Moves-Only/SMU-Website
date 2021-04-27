@@ -75,6 +75,7 @@ if (isset($_POST['login-submit'])) {
 					JOIN student_group ON student_group.id = schedule_peer_eval.group_id
 					JOIN group_assign ON student_group.id = group_assign.group_id
 					WHERE group_assign.student_id = ?;";
+
 					$stmt = mysqli_stmt_init($conn);
 
 					if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -102,6 +103,7 @@ if (isset($_POST['login-submit'])) {
 								JOIN student_group ON schedule_peer_eval.group_id = student_group.id
 								WHERE schedule_peer_eval.id = ? AND student_id = ?
 								GROUP BY student_id, peerEval_id;";
+								
 							$stmt = mysqli_stmt_init($conn);
 
 							if (!mysqli_stmt_prepare($stmt, $sql)) {

@@ -10,7 +10,8 @@ include "header.php";
         <param name='name' value='SMU_16172087489320&#47;StudentDashboard' />
         <param name='tabs' value='yes' />
         <param name='toolbar' value='yes' />
-        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;SM&#47;SMU_16172087489320&#47;StudentDashboard&#47;1.png' />
+        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;
+        images&#47;SM&#47;SMU_16172087489320&#47;StudentDashboard&#47;1.png' />
         <param name='animate_transition' value='yes' />
         <param name='display_static_image' value='yes' />
         <param name='display_spinner' value='yes' />
