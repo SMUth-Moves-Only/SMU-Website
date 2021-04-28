@@ -90,7 +90,7 @@ if (!isset($_SESSION['professor_id'])) {
       ?>
     </select><br>
 
-    <button type="submit" name="create-group"> Submit </button>
+    <button type="submit" name="create-group"> Assign Student </button>
 
   </form>
 </div>
