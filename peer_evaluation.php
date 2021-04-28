@@ -11,9 +11,7 @@ if (!isset($_SESSION['student_id'])) {
 </head>
 <div class="eval">
 
-
   <form action="includes/peer_evaluation_submit.inc.php" method="post" name="peerEval">
-
 
     <?php
     foreach ($_SESSION['student_list'] as &$student) {
@@ -47,10 +45,10 @@ if (!isset($_SESSION['student_id'])) {
           echo '<p>' . $_SESSION['criterion'][$i] . '</p>';
           echo '</div>';
           echo '<div class="column">';
-          echo '<input type="radio" id="' . $_SESSION['criterion'][$i] . '0 name="b1"' . $_SESSION['criterion'][$i] . $student[0] . '" value="0" required> <label for="' . $_SESSION['criterion'][$i] . '0">0</label>';
+          echo '<input type="radio" id="' . $_SESSION['criterion'][$i] . '0 name="' . $_SESSION['criterion'][$i] . $student[0] . '" value="0" required> <label for="' . $_SESSION['criterion'][$i] . '0">0</label>';
           echo '</div>';
           echo '<div class="column">';
-          echo '<input type="radio" id="' . $_SESSION['criterion'][$i] . '1 name="b2"' . $_SESSION['criterion'][$i] . $student[0] . '" value="1" required> <label for="' . $_SESSION['criterion'][$i] . '1">1</label>';
+          echo '<input type="radio" id="' . $_SESSION['criterion'][$i] . '1 name="' . $_SESSION['criterion'][$i] . $student[0] . '" value="1" required> <label for="' . $_SESSION['criterion'][$i] . '1">1</label>';
           echo '</div>';
           echo '<div class="column">';
           echo '<input type="radio" id="' . $_SESSION['criterion'][$i] . '2" name="' . $_SESSION['criterion'][$i] . $student[0] . '" value="2" required> <label for="' . $_SESSION['criterion'][$i] . '2">2</label>';

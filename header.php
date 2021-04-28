@@ -171,6 +171,18 @@ else if ($_SERVER['QUERY_STRING'] == "result=scheduled" /*ERROR MESSAGE: informa
     <strong>Success:</strong> Scheduled successfully.
   </div>';
 }
+else if ($_SERVER['QUERY_STRING'] == "error=selectdate" /*ERROR MESSAGE: information input error*/) {
+  echo '<div class="alert warning" name="nodate">
+    <span class="closebtn">&times;</span>
+    <strong>ERROR:</strong> Select a date.
+  </div>';
+}
+else if ($_SERVER['QUERY_STRING'] == "error=emailtaken" /*ERROR MESSAGE: information input error*/) {
+  echo '<div class="alert warning" name="takenemail">
+    <span class="closebtn">&times;</span>
+    <strong>ERROR:</strong> Email is already used. Enter a new email.
+  </div>';
+}
 
 /*
 error=wrongpwd
