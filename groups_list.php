@@ -44,7 +44,7 @@ if (!isset($_SESSION['professor_id'])) {
     </select><br>
 
     <!--submit button-->
-    <button type="submit" name="create-group"> Submit </button>
+    <button onclick="window.location='group_list_success.php';" type="submit" name="create-group"> Submit </button>
 
 </form>
 </div>
