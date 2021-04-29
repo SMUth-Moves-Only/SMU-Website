@@ -198,7 +198,7 @@ else if ($_SERVER['QUERY_STRING'] == "result=termadded" /*ERROR MESSAGE: informa
 else if ($_SERVER['QUERY_STRING'] == "error=passwordmissmatch" /*ERROR MESSAGE: information input error*/) {
   echo '<div class="alert warning" name="passmiss">
     <span class="closebtn">&times;</span>
-    <strong>ERROR:</strong> Email is already used. Enter a new email.
+    <strong>ERROR:</strong> Enter in the same password.
   </div>';
 }
 
