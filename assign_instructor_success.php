@@ -12,6 +12,7 @@ include "header.php";
 
 <link rel="stylesheet" href="css/evaluationsuccess.css">
 
+<!--success page for when an instructor has been assigned-->
 <body>
   <div class="checkmark">
     <img src="img/checkmark.svg" alt="check">

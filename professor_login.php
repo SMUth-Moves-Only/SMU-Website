@@ -37,7 +37,3 @@ if (isset($_SESSION['professor_id'])) {
     </form>
 
 </body>
-
-<?php
-include "footer.php";
-?>

@@ -19,7 +19,7 @@ include "header.php";
 <br>
 
 <div>
-    <h1>Login:</h1>
+    <h1>Sign Up:</h1>
 </div>
 
 

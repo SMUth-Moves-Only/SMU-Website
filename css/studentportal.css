@@ -6,10 +6,6 @@ h2 {
   text-align: center;
 }
 
-body {
-  background-color: tan
-}
-
 button {
   background: #06206e;
   padding: 10px 30px;
@@ -18,6 +14,10 @@ button {
   margin: 10px;
   border-radius: 5px;
   font-size: 120%
+}
+
+select {
+  width: 70%;
 }
 
 .buttons {

@@ -144,7 +144,7 @@ else if ($_SERVER['QUERY_STRING'] == "user=peerevalassigned" /*ERROR MESSAGE: in
 else if ($_SERVER['QUERY_STRING'] == "user=studentassigned" /*ERROR MESSAGE: information input error*/) {
   echo '<div class="alert success" name="successcontact">
     <span class="closebtn">&times;</span>
-    <strong>Success:</strong> You have been assigned to a group.
+    <strong>Success:</strong> Student has been assigned to a group.
   </div>';
 }
 else if ($_SERVER['QUERY_STRING'] == "result=studentadded" /*ERROR MESSAGE: information input error*/) {

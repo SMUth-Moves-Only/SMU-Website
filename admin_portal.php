@@ -17,17 +17,17 @@ if (!isset($_SESSION['admin_id'])) {
 </head>
 
 <body>
-
-    <div>
-        <?php
-        if (isset($_SESSION['fName']) && isset($_SESSION['lName'])) {
-            echo '<h1 style="text-align: center" name="welcome">Welcome ' . $_SESSION['fName'] . " " . $_SESSION['lName'] . ' to the Administrator Portal</h1>';
-        }
-        ?>
+  <div>
+    <!--admin welcome message-->
+    <?php
+      if (isset($_SESSION['fName']) && isset($_SESSION['lName'])) {
+        echo '<h1 style="text-align: center" name="welcome">Welcome ' . $_SESSION['fName'] . " " . $_SESSION['lName'] . ' to the Administrator Portal</h1>';
+      }
+    ?>
         <br>
+        <!--buttons for admin portal-->
         <div class="width50">
             <div class="row">
-
                 <div class="column">
                     <button onclick="window.location='admin_stats.php';">Admin <br> Statistics</button>
                 </div>
@@ -36,17 +36,15 @@ if (!isset($_SESSION['admin_id'])) {
                 <div class="column">
                     <button onclick="window.location='assign_instructor.php';">Add Course & Term</button>
                 </div>
-
                 <div class="column">
                     <button onclick="window.location='admin_tableau.php';">Admin Tableau</button>
                 </div>
-
             </div>
         </div>
-    </div>
-
+  </div>
 </body>
 
+<!--javascript-->
 <script>
     var close = document.getElementsByClassName("closebtn");
     var i;
@@ -61,5 +59,4 @@ if (!isset($_SESSION['admin_id'])) {
         }
     }
 </script>
-
 </html>

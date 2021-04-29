@@ -13,7 +13,7 @@ include "header.php";
 <body>
 
   <div class="row">
-    <!--select student-->
+    <!--add a course-->
     <div class="column">
       <h1>Add Course</h1>
       <div class="choosefile">
@@ -23,20 +23,20 @@ include "header.php";
           <label>Enter Course Name:<input type="text" name="cName"></label><br>
           <label>Enter Course Number:<input type="text" name="cNumber"></label><br>
           <input type="submit" value="Add Course" name="student-import"><br>
+
         </form>
       </div>
     </div>
 
-    <!--select image-->
+    <!--ass a term-->
     <div class="column">
       <h1>Add Term</h1>
       <div class="choosefile">
         <!--drop down list-->
         <form action="includes/add_term.inc.php" method="post" enctype="multipart/form-data">
 
-
           <br>
-
+          <!--enter term-->
           <label>Enter Term:<input type="text" name="termname"></label><br>
           <label>Start:</label>
           <input type="date" id="calendar" name="start_date">
@@ -48,16 +48,5 @@ include "header.php";
     </div>
   </div>
 
-  <!--
-    <h1>Assign Instructor</h1>
-<br>
-    <div class="assign">
-      <label>Select CSV file:</label>
-      <input type="file" name="fileToUpload" id="fileToUpload"><br>
-      <button onclick="window.location='assign_instructor_success.php';" type="submit"> SUBMIT </button>
-    </div>
--->
-
 </body>
-
 </html>
