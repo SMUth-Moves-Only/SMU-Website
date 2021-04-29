@@ -9,13 +9,13 @@ include "header.php";
 
 <br><br><br>
 
-<div class="register">
     <!--select a button for student or professor-->
+  <div class="register">
     <h1>Sign Up:</h1>
     <h3>Are you a student or professor?</h3>
     <p><input type="radio" onclick="stuShow()" name="person" value="st"><label>Student</label></p>
-    <p><input type="radio" onclick="profShow()" name="person2" value="pr"><label>Professor</label></p>
-</div>
+    <p><input type="radio" onclick="profShow()" name="person" value="pr"><label>Professor</label></p>
+  </div>
 <br>
 
 <div>
