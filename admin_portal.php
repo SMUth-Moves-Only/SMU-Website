@@ -29,7 +29,7 @@ if (!isset($_SESSION['admin_id'])) {
             <div class="row">
 
                 <div class="column">
-                    <button>Admin <br> Statistics</button>
+                    <button onclick="window.location='admin_stats.php';">Admin <br> Statistics</button>
                 </div>
             </div>
             <div class="row">
