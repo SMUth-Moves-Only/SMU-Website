@@ -6,7 +6,7 @@ if (!isset($_SESSION['admin_id'])) {
 }
 ?>
 
-
+<h1 name="stats"> Statistics</h1>
 
 
 

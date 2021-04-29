@@ -23,7 +23,6 @@ if (!isset($_SESSION['professor_id'])) {
 
   <h3>Thank you! <br> The evaluation has been assigned <br> successfully.</h3>
 
-  <h1>A confirmation email has been sent to the assigned student.</h1>
 
 </body>
 

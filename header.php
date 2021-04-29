@@ -189,7 +189,7 @@ else if ($_SERVER['QUERY_STRING'] == "result=courseadded" /*ERROR MESSAGE: infor
     <strong>Success:</strong> The course has been added successfully.
   </div>';
 }
-else if ($_SERVER['QUERY_STRING'] == "result=termadded" /*ERROR MESSAGE: information input error*/) {
+else if ($_SERVER['QUERY_STRING'] == "result=termcreated" /*ERROR MESSAGE: information input error*/) {
   echo '<div class="alert success" name="addedterm">
     <span class="closebtn">&times;</span>
     <strong>Success:</strong> The term has been added successfully.

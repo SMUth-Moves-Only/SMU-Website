@@ -59,25 +59,6 @@ if (!isset($_SESSION['professor_id'])) {
   </div>
 
 
-  <?php
-  if ($_SERVER['QUERY_STRING'] == "result=success" /*ERROR MESSAGE*/) {
-      echo '<div class="alert success" name="success">
-      <span class="closebtn">&times;</span>
-      <strong>Success:</strong> File uploaded.
-    </div>';
-  } else if ($_SERVER['QUERY_STRING'] == "error=notcsv" /*ERROR MESSAGE: not csv*/) {
-      echo '<div class="alert success">
-      <span class="closebtn">&times;</span>
-      <strong>ERROR:</strong> File must be a CSV file.
-    </div>';
-  } else if ($_SERVER['QUERY_STRING'] == "error=inputerror" /*ERROR MESSAGE: information input error*/) {
-      echo '<div class="alert warning">
-        <span class="closebtn">&times;</span>
-        <strong>Warning!</strong> Indicates a warning that might need attention.
-      </div>';
-  }
-  ?>
-
 
 <!--JavaScript-->
   <script>

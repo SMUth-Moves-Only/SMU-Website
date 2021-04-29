@@ -19,7 +19,7 @@ if (!isset($_SESSION['professor_id'])) {
       <?php
       if (isset($_SESSION['course_info'])) {
         for ($i = 0; $i < count($_SESSION['course_info']); $i++) {
-          echo '<option value="' . $_SESSION['course_info'][$i][0] . '">' . $_SESSION['course_info'][$i][2] . '</option>';
+          echo '<option value="' . $_SESSION['course_info'][$i][0] . '">' . $_SESSION['course_info'][$i][0] . ' ' . $_SESSION['course_info'][$i][2] . '</option>';
         }
       } else {
         echo '<option value="" disabled selected hidden>No Courses Available</option>';
@@ -82,7 +82,7 @@ if (!isset($_SESSION['professor_id'])) {
       <?php
       if (isset($_SESSION['course_info'])) {
         for ($i = 0; $i < count($_SESSION['course_info']); $i++) {
-          echo '<option value="' . $_SESSION['course_info'][$i][0] . '">' . $_SESSION['course_info'][$i][2] . '</option>';
+          echo '<option value="' . $_SESSION['course_info'][$i][0] . '">' . $_SESSION['course_info'][$i][0] . ' ' . $_SESSION['course_info'][$i][2] . '</option>';
         }
       } else {
         echo '<option value="" disabled selected hidden>No Courses Available</option>';

@@ -13,7 +13,7 @@ include "header.php";
 
 <body>
 
-  <h1>Student Evaluations</h1>
+  <h1 name="view_stu_eval">Student Evaluations</h1>
 
   <div class="big">
     <?php

@@ -61,7 +61,42 @@ if (isset($_POST['course-import'])) {
                     } else {
                         mysqli_stmt_bind_param($stmt, "iii", $professor_ID, $courseID, $termID);
                         mysqli_stmt_execute($stmt);
-                        header("Location: ../professor_portal.php?result=courseadded");
+
+                        unset($_SESSION['course_info']);
+
+
+					//get course information for all courses that the professor is an instructor for
+					$sql = "SELECT  professor_course.id, term_id, course_name, course_number, course_id, name, start_date, end_date FROM professor_course JOIN course AS c ON c.id=professor_course.course_id JOIN term AS t ON t.id=professor_course.term_id WHERE professor_id = ?;";
+					$stmt = mysqli_stmt_init($conn);
+
+					if (!mysqli_stmt_prepare($stmt, $sql)) {
+						header("Location: ../index.php?error=sqlerror");
+						exit();
+					} else {
+						//get all courses professor is a part of based on professor id
+						mysqli_stmt_bind_param($stmt, "i",  $professor_ID);
+						mysqli_stmt_execute($stmt);
+
+						//grabs the result for the stmt
+						$result = mysqli_stmt_get_result($stmt);
+
+						//increment for course_info session variable
+						$i = 0;
+
+						//store course information in a nested array
+						while ($row = $result->fetch_assoc()) {
+							$_SESSION['course_info'][$i] = array($row['id'], $row['course_id'], $row['course_name'], $row['course_number'], $row['name']);
+                            echo "entered";
+							$i++;
+						}
+                        var_dump($_SESSION);
+						header("Location: ../professor_portal.php?result=courseadded");
+					}
+
+
+
+
+                        
                     }
                 } else {
                     header("Location: ../professor_portal.php?error=invaliddata");
@@ -172,7 +207,39 @@ if (isset($_POST['course-import'])) {
                         }
                     }
                 }
-                header("Location: ../professor_portal.php?result=coursescreated");
+
+
+					//get course information for all courses that the professor is an instructor for
+					$sql = "SELECT  professor_course.id, term_id, course_name, course_number, course_id, name, start_date, end_date FROM professor_course JOIN course AS c ON c.id=professor_course.course_id JOIN term AS t ON t.id=professor_course.term_id WHERE professor_id = ?;";
+					$stmt = mysqli_stmt_init($conn);
+
+					if (!mysqli_stmt_prepare($stmt, $sql)) {
+						header("Location: ../index.php?error=sqlerror");
+						exit();
+					} else {
+						//get all courses professor is a part of based on professor id
+						mysqli_stmt_bind_param($stmt, "i", $row['id']);
+						mysqli_stmt_execute($stmt);
+
+						//grabs the result for the stmt
+						$result = mysqli_stmt_get_result($stmt);
+
+						//increment for course_info session variable
+						$i = 0;
+
+						//store course information in a nested array
+						while ($row = $result->fetch_assoc()) {
+							$_SESSION['course_info'][$i] = array($row['id'], $row['course_id'], $row['course_name'], $row['course_number'], $row['name']);
+							$i++;
+						}
+
+						header("Location: ../professor_portal.php?result=coursescreated");
+					}
+
+
+
+
+                
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }

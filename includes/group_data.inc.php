@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require 'dbh.inc.php';
 
 $courseID = $_POST['SelectCourse'];
@@ -20,6 +22,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
   mysqli_stmt_execute($stmt);
   $result = mysqli_stmt_get_result($stmt);
   //save the criterion as session variables for output on page
+  unset($_SESSION['group_schedule']);
   $i = 0;
   echo "You will be scheduling evaluations for the following groups:"."<br>";
   while ($row = $result->fetch_assoc()) {
