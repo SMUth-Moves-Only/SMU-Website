@@ -21,7 +21,7 @@ if (!isset($_SESSION['admin_id'])) {
     <div>
         <?php
         if (isset($_SESSION['fName']) && isset($_SESSION['lName'])) {
-            echo '<h1 style="text-align: center" name="welcome">Welcome ' . $_SESSION['fName'] . " " . $_SESSION['lName'] . ' to the Instructor Portal</h1>';
+            echo '<h1 style="text-align: center" name="welcome">Welcome ' . $_SESSION['fName'] . " " . $_SESSION['lName'] . ' to the Administrator Portal</h1>';
         }
         ?>
         <br>
