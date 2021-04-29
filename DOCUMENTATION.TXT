@@ -4,6 +4,8 @@ To access this website, please install and run a web server such as Apache.
 
 All credentials are preloaded and ready to test the website locally with the remote database.
 
+There are two sample CSV files in the CSV folder to show how the CSV file upload functions. If you upload a CSV, it is not necessary to fill in the boxes below when importing students or courses as a professor.
+It is not necessary to upload a CSV if you are using the manual text box inputs.
 
 Database access instructions are as follows:
 Install and open MySQL Workbench
