@@ -11,9 +11,7 @@ if (!isset($_SESSION['student_id'])) {
 </head>
 <div class="eval">
 
-
   <form action="includes/peer_evaluation_submit.inc.php" method="post" name="peerEval">
-
 
     <?php
     foreach ($_SESSION['student_list'] as &$student) {

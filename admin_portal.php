@@ -27,21 +27,20 @@ if (!isset($_SESSION['admin_id'])) {
         <br>
         <div class="width50">
             <div class="row">
-                <div class="column">
-                    <button onclick="window.location='admin_tableau.php';">Tableau</button>
-                    <!--FILE TO UPLOAD COURSES. MAY NEED TO ALSO INCLUDE CODE FROM STUDENT_FILE_UPLOAD-->
-                </div>
+
                 <div class="column">
                     <button>Admin <br> Statistics</button>
                 </div>
             </div>
             <div class="row">
                 <div class="column">
-                    <button onclick="window.location='groups.php';">???</button>
+                    <button onclick="window.location='assign_instructor.php';">Assign <br> Instructor</button>
                 </div>
+                <!--
                 <div class="column">
                     <button>???</button>
                 </div>
+              -->
             </div>
         </div>
     </div>
