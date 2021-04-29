@@ -45,11 +45,6 @@ if (!isset($_SESSION['professor_id'])) {
                 <div class="column">
                     <button onclick="window.location='instructor_analytics.php';">View <br> Analytics</button>
                 </div>
-                <div class="column">
-                    <button onclick="window.location='admin_tableau.php';">Tableau</button>
-                    <!--FILE TO UPLOAD COURSES. MAY NEED TO ALSO INCLUDE CODE FROM STUDENT_FILE_UPLOAD-->
-                </div>
-
             </div>
         </div>
     </div>

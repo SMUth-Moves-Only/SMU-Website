@@ -77,6 +77,8 @@ if (isset($_POST['student-signup'])) {
 				header("Location: ../index.php?error=emailtaken");
 				exit();
 			} else {
+
+
 				//insert the student into the database
 				$sql = "INSERT INTO student (first_name, last_name, major, email_address, student_password, live, date_imported) VALUES (?, ?, ?, ?, ?, 1, NOW())";
 
@@ -93,7 +95,6 @@ if (isset($_POST['student-signup'])) {
 
 					//hash the password
 					$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-
 
 					mysqli_stmt_bind_param($stmt, "sssss", $fName, $lName, $major, $email, $hashedPwd);
 					mysqli_stmt_execute($stmt);

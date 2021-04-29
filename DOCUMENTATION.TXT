@@ -1,0 +1,14 @@
+How to use this website:
+
+To access this website, please install and run a web server such as Apache.
+
+All credentials are preloaded and ready to test the website locally with the remote database.
+
+
+Database access instructions are as follows:
+Install and open MySQL Workbench
+
+Create a new connection with the following credentials:
+Host: db.gregfairbanks.net
+Username: SMU
+Password: SMUAccount
