@@ -13,6 +13,12 @@ if (isset($_POST['eval-schedule'])) {
     $startDate = $_POST['startdateselect'];
     $endDate = $_POST['enddateselect'];
 
+    if(empty($startDate) || empty($endDate)){
+        header("Location: ../group_data.php?error=selectdate");
+        exit();
+    }
+
+
     foreach ($_SESSION['group_schedule'] as &$groupID) {
         //convert course number to id in database
         $sql = "insert into schedule_peer_eval (start_date, end_date, group_id) Value (?,?,?);";

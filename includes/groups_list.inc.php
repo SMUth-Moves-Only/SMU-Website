@@ -4,7 +4,9 @@ session_start();
 
 require 'dbh.inc.php';
 
-$courseID = $_POST['CourseSelect'];
+var_dump($_SESSION);
+
+$courseID = $_POST['CourseName'];
 
 $sql = "SELECT id, team_name FROM student_group WHERE prof_course_id = ?;";
 

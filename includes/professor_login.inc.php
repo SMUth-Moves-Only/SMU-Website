@@ -35,7 +35,7 @@ if (isset($_POST['login-submit'])) {
 
 				$pwdCheck = password_verify($password, $row['password']);
 
-				if ($password == $row['password']) {
+				if ($password == $pwdCheck) {
 					//if ($password == $pwdCheck) {
 					$pwdCheck = true;
 				} else {

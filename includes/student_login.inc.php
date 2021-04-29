@@ -34,7 +34,7 @@ if (isset($_POST['login-submit'])) {
 				//implement reverse hash
 				//check password
 				$pwdCheck = password_verify($password, $row['student_password']);
-				if ($password == $row['student_password']) {
+				if ($password == $pwdCheck) {
 					//if ($password == $pwdCheck) {
 					$pwdCheck = true;
 				} else {

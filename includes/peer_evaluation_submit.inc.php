@@ -54,18 +54,19 @@ for ($j = 0; $j < count($_SESSION['student_list']); $j++) {
 		mysqli_stmt_bind_param($stmt, "iiis", $loggedInStudent, $evalNum, $_SESSION['student_list'][$j][0], $addComments);
 		mysqli_stmt_execute($stmt);
 		//have session started to end it
-		session_start();
 
-		//takes all session variables and deletes all values
-		session_unset();
-
-		//destroys the session
-		session_destroy();
-
-		header("Location: ../evaluation_success.php?result=evalsubmitted");
 	}
 }
 
+session_start();
+
+//takes all session variables and deletes all values
+session_unset();
+
+//destroys the session
+session_destroy();
+
+header("Location: ../evaluation_success.php?result=evalsubmitted");
 
 
 //send email once evaluation is submitted to database

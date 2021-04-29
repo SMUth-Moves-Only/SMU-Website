@@ -14,7 +14,7 @@ include "header.php";
 
   <h1>Schedule Peer Evaluation</h1>
 
-  <form action="group_data.php" method="post">
+  <form action="includes/group_data.inc.php" method="post">
 
     <div class="cgroup">
       <label>Select Course:</label>
