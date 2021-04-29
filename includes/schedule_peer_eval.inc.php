@@ -10,6 +10,8 @@ require 'dbh.inc.php';
 
 if (isset($_POST['eval-schedule'])) {
 
+//Schedule the peer evaluation
+
     $startDate = $_POST['startdateselect'];
     $endDate = $_POST['enddateselect'];
 

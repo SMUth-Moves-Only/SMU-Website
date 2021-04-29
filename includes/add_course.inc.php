@@ -2,12 +2,12 @@
 
 //Add database handler
 require "dbh.inc.php";
-//Check if tableName is empty
+
 
 $cName = $_POST['cName'];
 $cNumber = $_POST['cNumber'];
 
-$sql = "INSERT INTO course (course_name, course_number, date_imported) VALUES (?,?, NOW())";
+$sql = "INSERT INTO course (course_name, course_number, date_imported) VALUES (?,?, NOW())"; //Insert into the course table
 $stmt = mysqli_stmt_init($conn);
 //prepare the statement
 if (!mysqli_stmt_prepare($stmt, $sql)) {

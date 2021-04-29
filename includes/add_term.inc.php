@@ -2,7 +2,7 @@
 
 //Add database handler
 require "dbh.inc.php";
-//Check if tableName is empty
+
 
 $name =  $_POST['termname'];
 $start_date = $_POST['start_date'];
@@ -14,7 +14,7 @@ if(empty($start_date) || empty($end_date)){
 }
 
 
-$sql = "INSERT INTO term (name, start_date, end_date) VALUES (?,?,?)";
+$sql = "INSERT INTO term (name, start_date, end_date) VALUES (?,?,?)"; //Insert into the terms table
 $stmt = mysqli_stmt_init($conn);
 //prepare the statement
 if (!mysqli_stmt_prepare($stmt, $sql)) {

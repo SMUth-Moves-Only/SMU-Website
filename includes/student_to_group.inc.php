@@ -8,7 +8,7 @@ $groupID = $_POST['GroupSelect'];
 $studentID = $_POST['StudentSelect'];
 
 
-$sql = "INSERT INTO group_assign (group_id, student_id) VALUES (?, ?)";
+$sql = "INSERT INTO group_assign (group_id, student_id) VALUES (?, ?)"; //Add student to group
 
 $stmt = mysqli_stmt_init($conn);
 

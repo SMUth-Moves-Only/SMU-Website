@@ -21,13 +21,13 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
   mysqli_stmt_bind_param($stmt, "i", $courseID);
   mysqli_stmt_execute($stmt);
   $result = mysqli_stmt_get_result($stmt);
-  //save the criterion as session variables for output on page
+
   unset($_SESSION['group_schedule']);
   $i = 0;
   echo "You will be scheduling evaluations for the following groups:"."<br>";
   while ($row = $result->fetch_assoc()) {
     $_SESSION['group_schedule'][$i] = $row["id"];
-    echo $row["id"] . ", "; /////////THIS IS WHERE YOU PUT HTML AND CSS
+    echo $row["id"] . ", "; 
     $i++;
   }
   header("Location: ../group_data.php?result=groupsuccess");
