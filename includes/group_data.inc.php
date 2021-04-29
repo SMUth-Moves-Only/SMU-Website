@@ -27,8 +27,8 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     echo $row["id"] . ", "; /////////THIS IS WHERE YOU PUT HTML AND CSS
     $i++;
   }
-  //header("Location: ../group_data.php?result=groupsuccess");
-  var_dump($_SESSION);
+  header("Location: ../group_data.php?result=groupsuccess");
+
   //close the sqli connection to save resources
   mysqli_stmt_close($stmt);
   mysqli_close($conn);
