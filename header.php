@@ -183,6 +183,18 @@ else if ($_SERVER['QUERY_STRING'] == "error=emailtaken" /*ERROR MESSAGE: informa
     <strong>ERROR:</strong> Email is already used. Enter a new email.
   </div>';
 }
+else if ($_SERVER['QUERY_STRING'] == "result=courseadded" /*ERROR MESSAGE: information input error*/) {
+  echo '<div class="alert success" name="successcontact">
+    <span class="closebtn">&times;</span>
+    <strong>Success:</strong> The course has been added successfully.
+  </div>';
+}
+else if ($_SERVER['QUERY_STRING'] == "result=termadded" /*ERROR MESSAGE: information input error*/) {
+  echo '<div class="alert success" name="successcontact">
+    <span class="closebtn">&times;</span>
+    <strong>Success:</strong> The term has been added successfully.
+  </div>';
+}
 
 /*
 error=wrongpwd

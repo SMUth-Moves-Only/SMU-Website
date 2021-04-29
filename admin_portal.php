@@ -36,11 +36,11 @@ if (!isset($_SESSION['admin_id'])) {
                 <div class="column">
                     <button onclick="window.location='assign_instructor.php';">Assign <br> Instructor</button>
                 </div>
-                <!--
+
                 <div class="column">
-                    <button>???</button>
+                    <button onclick="window.location='admin_tableau.php';">Admin Tableau</button>
                 </div>
-              -->
+
             </div>
         </div>
     </div>

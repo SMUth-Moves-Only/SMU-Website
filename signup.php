@@ -14,7 +14,7 @@ include "header.php";
     <h1>Sign Up:</h1>
     <h3>Are you a student or professor?</h3>
     <p><input type="radio" onclick="stuShow()" name="person" value="st"><label>Student</label></p>
-    <p><input type="radio" onclick="profShow()" name="person" value="pr"><label>Professor</label></p>
+    <p><input type="radio" onclick="profShow()" name="person2" value="pr"><label>Professor</label></p>
 </div>
 <br>
 
