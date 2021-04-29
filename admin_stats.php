@@ -109,11 +109,38 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
                     echo $row["email_address"] . '<br>';
                 }
                 echo '<br><br>';
-                //close the sqli connection to save resources
-                mysqli_stmt_close($stmt);
-                mysqli_close($conn);
-                //header("Location: ../professor_portal.php?user=scheduledevalrefreshed");
-                exit();
+
+
+                $sql = "select * from course;";
+
+                $stmt = mysqli_stmt_init($conn);
+        
+                //helps keep database safe
+                if (!mysqli_stmt_prepare($stmt, $sql)) {
+                    //close the sqli connection to save resources
+                    mysqli_stmt_close($stmt);
+                    mysqli_close($conn);
+                    header("Location: ../index.php?error=sqlerror");
+                    exit();
+                } else {
+                    mysqli_stmt_execute($stmt);
+        
+                    $result = mysqli_stmt_get_result($stmt);
+                    //save the criterion as session variables for output on page
+                    $i = 0;
+                    while ($row = $result->fetch_assoc()) {
+                        echo $row["id"] . ' ';
+                        echo $row["course_name"] . ' ';
+                        echo $row["course_number"] . ' ';
+                        echo $row["date_imported"] . '<br>';
+                    }
+                    echo '<br><br>';
+                    //close the sqli connection to save resources
+                    mysqli_stmt_close($stmt);
+                    mysqli_close($conn);
+                }
+
+
             }
         }
     }
