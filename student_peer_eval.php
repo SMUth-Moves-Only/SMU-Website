@@ -30,7 +30,7 @@ include "header.php";
         ?>
       </select><br>
 
-      <!--
+<!--
   <br>
       <label>Select Class:</label>
       <select name="SelectClass"></select>
@@ -41,8 +41,8 @@ include "header.php";
 
         <label>Select Date:</label>
         <input type="date" id="calendar" name="startdateselect">
-
 -->
+
       <br>
       <button name="course-submit" type="submit"> SUBMIT </button>
     </div>

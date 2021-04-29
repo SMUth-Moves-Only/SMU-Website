@@ -8,6 +8,7 @@ include "header.php";
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/veiw_stu_eval.css">
+  <title>view_stu_eval</title>
 </head>
 
 <body>
