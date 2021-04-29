@@ -7,7 +7,7 @@ include "header.php";
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <link rel="stylesheet" href="css/veiw_stu_eval.css">
 </head>
 
 <body>

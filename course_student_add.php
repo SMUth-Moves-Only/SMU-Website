@@ -50,7 +50,7 @@ if (!isset($_SESSION['professor_id'])) {
         <form action="includes/course_student_add.inc.php" method="post" enctype="multipart/form-data">
           Select CSV to Upload:
           <input type="file" name="fileToUpload" id="fileToUpload"><br>
-          <label>Enter Course Name:<input type="text" name="coursename"></label><br>
+          <label>Enter Course Number:<input type="text" name="coursename"></label><br>
           <label>Enter Course Term:<input type="text" name="termnum"></label><br>
           <input type="submit" value="Import Course" name="course-import">
         </form>

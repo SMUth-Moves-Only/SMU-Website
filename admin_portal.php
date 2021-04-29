@@ -34,7 +34,7 @@ if (!isset($_SESSION['admin_id'])) {
             </div>
             <div class="row">
                 <div class="column">
-                    <button onclick="window.location='assign_instructor.php';">Add Course/Term</button>
+                    <button onclick="window.location='assign_instructor.php';">Add Course & Term</button>
                 </div>
 
                 <div class="column">
