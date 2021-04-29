@@ -184,15 +184,21 @@ else if ($_SERVER['QUERY_STRING'] == "error=emailtaken" /*ERROR MESSAGE: informa
   </div>';
 }
 else if ($_SERVER['QUERY_STRING'] == "result=courseadded" /*ERROR MESSAGE: information input error*/) {
-  echo '<div class="alert success" name="successcontact">
+  echo '<div class="alert success" name="addedcourse">
     <span class="closebtn">&times;</span>
     <strong>Success:</strong> The course has been added successfully.
   </div>';
 }
 else if ($_SERVER['QUERY_STRING'] == "result=termadded" /*ERROR MESSAGE: information input error*/) {
-  echo '<div class="alert success" name="successcontact">
+  echo '<div class="alert success" name="addedterm">
     <span class="closebtn">&times;</span>
     <strong>Success:</strong> The term has been added successfully.
+  </div>';
+}
+else if ($_SERVER['QUERY_STRING'] == "error=passwordmissmatch" /*ERROR MESSAGE: information input error*/) {
+  echo '<div class="alert warning" name="passmiss">
+    <span class="closebtn">&times;</span>
+    <strong>ERROR:</strong> Email is already used. Enter a new email.
   </div>';
 }
 

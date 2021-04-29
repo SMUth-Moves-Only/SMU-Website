@@ -10,8 +10,6 @@ include "header.php";
   </head>
   <body>
 
-
-
       <div class="row">
         <!--select student-->
         <div class="column">
@@ -48,12 +46,6 @@ include "header.php";
           </div>
         </div>
       </div>
-
-
-
-
-
-
 
 <!--
     <h1>Assign Instructor</h1>
